@@ -3,5 +3,4 @@
 //
 
 #import <Google/SignIn.h>
-#import "BPVObservableObject.h"
-#import "BPVObservableObjectProtocol.h"
+#import <MagicalRecord/MagicalRecord.h>

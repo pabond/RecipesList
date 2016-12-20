@@ -10,6 +10,10 @@ import UIKit
 import Foundation
 
 extension UIViewController {
+    func getView<T>() -> T? {
+        return self.view as? T
+    }
+    
     var isRegularWidthAndRegularHeight: Bool {
         let sizeClass = self.traitCollection
         return sizeClass.verticalSizeClass == .regular && sizeClass.horizontalSizeClass ==  .regular

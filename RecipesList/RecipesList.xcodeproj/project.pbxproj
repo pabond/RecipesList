@@ -54,7 +54,6 @@
 		2DA0443E1DF0230A005EA62B /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA044321DF0230A005EA62B /* RecipesViewController.swift */; };
 		2DA044411DF02B81005EA62B /* ArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA044401DF02B81005EA62B /* ArrayModel.swift */; };
 		2DD5A8AF1E02A2C5007B6023 /* LoadingCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD5A8AE1E02A2C5007B6023 /* LoadingCalculatorViewController.swift */; };
-		2DD5A8B41E02BD3C007B6023 /* BPVObservableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD5A8B21E02BD3C007B6023 /* BPVObservableObject.m */; };
 		2DD5A8B81E02CB3C007B6023 /* CalculateValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD5A8B61E02CB3C007B6023 /* CalculateValueCell.swift */; };
 		2DD5A8B91E02CB3C007B6023 /* CalculateValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DD5A8B71E02CB3C007B6023 /* CalculateValueCell.xib */; };
 		2DD5A8BB1E02CBFD007B6023 /* CalculatedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD5A8BA1E02CBFD007B6023 /* CalculatedRecipe.swift */; };
@@ -134,9 +133,6 @@
 		2DA044321DF0230A005EA62B /* RecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
 		2DA044401DF02B81005EA62B /* ArrayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayModel.swift; sourceTree = "<group>"; };
 		2DD5A8AE1E02A2C5007B6023 /* LoadingCalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCalculatorViewController.swift; sourceTree = "<group>"; };
-		2DD5A8B11E02BD3C007B6023 /* BPVObservableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPVObservableObject.h; sourceTree = "<group>"; };
-		2DD5A8B21E02BD3C007B6023 /* BPVObservableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPVObservableObject.m; sourceTree = "<group>"; };
-		2DD5A8B31E02BD3C007B6023 /* BPVObservableObjectProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPVObservableObjectProtocol.h; sourceTree = "<group>"; };
 		2DD5A8B61E02CB3C007B6023 /* CalculateValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculateValueCell.swift; sourceTree = "<group>"; };
 		2DD5A8B71E02CB3C007B6023 /* CalculateValueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculateValueCell.xib; sourceTree = "<group>"; };
 		2DD5A8BA1E02CBFD007B6023 /* CalculatedRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatedRecipe.swift; sourceTree = "<group>"; };
@@ -300,7 +296,6 @@
 		2DA0441C1DF0230A005EA62B /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				2DD5A8B01E02BD3C007B6023 /* BPVObservableObject */,
 				2DA0441D1DF0230A005EA62B /* Extensions */,
 				2DA044201DF0230A005EA62B /* Models */,
 				2DA044211DF0230A005EA62B /* ViewControllers */,
@@ -429,16 +424,6 @@
 				2DD5A8AE1E02A2C5007B6023 /* LoadingCalculatorViewController.swift */,
 			);
 			path = LoadingCalculatorViewController;
-			sourceTree = "<group>";
-		};
-		2DD5A8B01E02BD3C007B6023 /* BPVObservableObject */ = {
-			isa = PBXGroup;
-			children = (
-				2DD5A8B11E02BD3C007B6023 /* BPVObservableObject.h */,
-				2DD5A8B21E02BD3C007B6023 /* BPVObservableObject.m */,
-				2DD5A8B31E02BD3C007B6023 /* BPVObservableObjectProtocol.h */,
-			);
-			path = BPVObservableObject;
 			sourceTree = "<group>";
 		};
 		2DD5A8B51E02CB09007B6023 /* CalulateValueCell */ = {
@@ -725,7 +710,6 @@
 				2DD5A8BB1E02CBFD007B6023 /* CalculatedRecipe.swift in Sources */,
 				2DA044351DF0230A005EA62B /* UIWindow.swift in Sources */,
 				2D0804731E003E8C00BC7D9D /* SlideInPresentationController.swift in Sources */,
-				2DD5A8B41E02BD3C007B6023 /* BPVObservableObject.m in Sources */,
 				2D0606751E095D7400AA0C41 /* CDComponent+CoreDataClass.swift in Sources */,
 				2DA044341DF0230A005EA62B /* UIViewController.swift in Sources */,
 				2D0804741E003E8C00BC7D9D /* SlideInPresentationManager.swift in Sources */,
