@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="293" id="KGk-i7-Jjw" customClass="RecipeEditHeaderCell" customModule="RecipesList" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="292"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tY-EX-31S">
+                        <rect key="frame" x="16" y="18" width="288" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe application" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrA-95-E7d">
+                        <rect key="frame" x="16" y="85" width="288" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Component name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C55-F9-PX5">
+                        <rect key="frame" x="16" y="261" width="137" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pda-tl-5Mc">
+                        <rect key="frame" x="16" y="221" width="288" height="30"/>
+                        <color key="backgroundColor" red="0.63271569090000002" green="1" blue="0.97247070329999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Add component">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <connections>
+                            <action selector="onAdd:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OPV-p2-23Z"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cre-jD-J52">
+                        <rect key="frame" x="268" y="261" width="26" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipe name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a67-gn-4zN">
+                        <rect key="frame" x="16" y="47" width="288" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipe application" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zqt-px-zQf">
+                        <rect key="frame" x="16" y="114" width="288" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Companies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxL-gV-iQH">
+                        <rect key="frame" x="16" y="152" width="288" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Companies which using recipe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ilO-a7-peG">
+                        <rect key="frame" x="16" y="181" width="288" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wrA-95-E7d" firstAttribute="top" secondItem="a67-gn-4zN" secondAttribute="bottom" constant="8" id="7gW-L2-bXH"/>
+                    <constraint firstItem="hxL-gV-iQH" firstAttribute="top" secondItem="Zqt-px-zQf" secondAttribute="bottom" constant="8" id="8lB-7L-0ZB"/>
+                    <constraint firstItem="hxL-gV-iQH" firstAttribute="trailing" secondItem="5tY-EX-31S" secondAttribute="trailing" id="BYh-KF-vHL"/>
+                    <constraint firstItem="Cre-jD-J52" firstAttribute="bottom" secondItem="C55-F9-PX5" secondAttribute="bottom" id="CCg-vw-5ld"/>
+                    <constraint firstItem="a67-gn-4zN" firstAttribute="top" secondItem="5tY-EX-31S" secondAttribute="bottom" constant="8" id="JqC-aX-Voz"/>
+                    <constraint firstItem="C55-F9-PX5" firstAttribute="leading" secondItem="5tY-EX-31S" secondAttribute="leading" id="LKJ-hk-NKr"/>
+                    <constraint firstItem="Cre-jD-J52" firstAttribute="top" secondItem="C55-F9-PX5" secondAttribute="top" id="Lj2-IQ-bCQ"/>
+                    <constraint firstItem="ilO-a7-peG" firstAttribute="trailing" secondItem="5tY-EX-31S" secondAttribute="trailing" id="PlI-fg-owN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5tY-EX-31S" secondAttribute="trailing" constant="8" id="TuO-wL-z9c"/>
+                    <constraint firstItem="hxL-gV-iQH" firstAttribute="leading" secondItem="5tY-EX-31S" secondAttribute="leading" id="ULX-6f-Dy8"/>
+                    <constraint firstItem="Zqt-px-zQf" firstAttribute="top" secondItem="wrA-95-E7d" secondAttribute="bottom" constant="8" id="WG1-5c-Mu1"/>
+                    <constraint firstItem="pda-tl-5Mc" firstAttribute="top" secondItem="ilO-a7-peG" secondAttribute="bottom" constant="10" id="Zjb-3c-Kwr"/>
+                    <constraint firstItem="Zqt-px-zQf" firstAttribute="leading" secondItem="5tY-EX-31S" secondAttribute="leading" id="atD-iA-rdK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="C55-F9-PX5" secondAttribute="bottom" constant="2" id="bKj-3M-Wmw"/>
+                    <constraint firstItem="wrA-95-E7d" firstAttribute="leading" secondItem="5tY-EX-31S" secondAttribute="leading" id="blh-9C-Dxb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="a67-gn-4zN" secondAttribute="trailing" constant="8" id="ct2-RZ-L33"/>
+                    <constraint firstItem="pda-tl-5Mc" firstAttribute="trailing" secondItem="5tY-EX-31S" secondAttribute="trailing" id="eUl-ve-OjD"/>
+                    <constraint firstItem="ilO-a7-peG" firstAttribute="leading" secondItem="5tY-EX-31S" secondAttribute="leading" id="fcv-6l-Zfz"/>
+                    <constraint firstItem="Zqt-px-zQf" firstAttribute="trailing" secondItem="5tY-EX-31S" secondAttribute="trailing" id="gUu-Ut-YdO"/>
+                    <constraint firstItem="5tY-EX-31S" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="hOw-xB-6rP"/>
+                    <constraint firstItem="Cre-jD-J52" firstAttribute="trailing" secondItem="5tY-EX-31S" secondAttribute="trailing" constant="-10" id="hV4-ol-1ub"/>
+                    <constraint firstItem="pda-tl-5Mc" firstAttribute="leading" secondItem="5tY-EX-31S" secondAttribute="leading" id="hfL-29-hLL"/>
+                    <constraint firstItem="a67-gn-4zN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="jca-UF-LBP"/>
+                    <constraint firstItem="ilO-a7-peG" firstAttribute="top" secondItem="hxL-gV-iQH" secondAttribute="bottom" constant="8" id="m4m-Ey-zAh"/>
+                    <constraint firstItem="5tY-EX-31S" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="tWe-UX-SMR"/>
+                    <constraint firstItem="C55-F9-PX5" firstAttribute="top" secondItem="pda-tl-5Mc" secondAttribute="bottom" constant="10" id="u8O-hW-XW4"/>
+                    <constraint firstItem="wrA-95-E7d" firstAttribute="trailing" secondItem="5tY-EX-31S" secondAttribute="trailing" id="yci-bl-0dx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="companies" destination="ilO-a7-peG" id="OMo-KH-IAx"/>
+                <outlet property="recipeApplication" destination="Zqt-px-zQf" id="ZHA-9G-ksI"/>
+                <outlet property="recipeName" destination="a67-gn-4zN" id="MYw-cs-0ro"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="178.5"/>
+        </tableViewCell>
+    </objects>
+</document>

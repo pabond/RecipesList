@@ -1,0 +1,27 @@
+//
+//  RecipeComponentEditCell.swift
+//  RecipesList
+//
+//  Created by Bondar Pavel on 12/6/16.
+//  Copyright © 2016 Pavel Bondar. All rights reserved.
+//
+
+import UIKit
+
+class RecipeComponentEditCell : EditTableViewCell {
+    @IBOutlet weak var componentName: UITextField!
+    @IBOutlet weak var componentDosage: UITextField!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        textFields = [componentName, componentDosage]
+    }
+    
+    override func fillWith(_ object: AnyObject?) {
+        guard let component = object as? RecipeComponent else { return }
+        componentName.text = component.componentName
+        if let dosage = component.componentDosage {
+            componentDosage.text = "\(dosage)"
+        }
+    }
+}
