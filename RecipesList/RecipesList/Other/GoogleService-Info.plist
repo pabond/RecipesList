@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>532924301950-evsj2gcp3kv22jvrijpbavnij5mm8hsu.apps.googleusercontent.com</string>
+	<string>906214721904-j9b4om8eh3hlddha5pc16ipmm1269rc3.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.532924301950-evsj2gcp3kv22jvrijpbavnij5mm8hsu</string>
+	<string>com.googleusercontent.apps.906214721904-j9b4om8eh3hlddha5pc16ipmm1269rc3</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>pavelbondar.RecipesList</string>
 	<key>PROJECT_ID</key>
-	<string>firebase-recipeslist</string>
+	<string>recipeslist-e3778</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -23,6 +23,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:532924301950:ios:0228dc2613776a69</string>
+	<string>1:906214721904:ios:0228dc2613776a69</string>
 </dict>
 </plist>

@@ -3,4 +3,3 @@
 //
 
 #import <Google/SignIn.h>
-#import <MagicalRecord/MagicalRecord.h>

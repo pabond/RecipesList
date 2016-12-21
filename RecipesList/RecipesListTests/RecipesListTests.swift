@@ -2,7 +2,7 @@
 //  RecipesListTests.swift
 //  RecipesListTests
 //
-//  Created by Bondar Pavel on 11/24/16.
+//  Created by Bondar Pavel on 12/21/16.
 //  Copyright © 2016 Pavel Bondar. All rights reserved.
 //
 

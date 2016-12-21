@@ -6,7 +6,7 @@
 //  Copyright © 2016 Pavel Bondar. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UINib {
     class func objectWithClass(_ cls: AnyClass) -> AnyObject? {

@@ -1,4 +1,4 @@
+
 target 'RecipesList' do
   pod 'Google/SignIn'
-  pod 'MagicalRecord'
 end
