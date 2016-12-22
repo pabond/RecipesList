@@ -94,13 +94,15 @@
                             <constraint firstItem="K69-8h-X0p" firstAttribute="top" secondItem="IJJ-e4-D7e" secondAttribute="bottom" constant="50" id="yTD-Lg-c93"/>
                             <constraint firstItem="UTk-jo-Tq2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="zYo-AZ-c1r"/>
                         </constraints>
+                        <connections>
+                            <outlet property="avatarImageView" destination="UTk-jo-Tq2" id="TNZ-HL-sWk"/>
+                            <outlet property="continueButton" destination="OWE-vv-Xxe" id="Va6-au-o1X"/>
+                            <outlet property="logOutButton" destination="Qvq-4U-oTO" id="9gZ-CV-Knv"/>
+                            <outlet property="signInButton" destination="K69-8h-X0p" id="j3n-qO-z7k"/>
+                            <outlet property="welcomeLabel" destination="IJJ-e4-D7e" id="hDE-8f-Nlf"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="avatarImageView" destination="UTk-jo-Tq2" id="bv5-HU-pAb"/>
-                        <outlet property="continueButton" destination="OWE-vv-Xxe" id="W6H-R2-MYd"/>
-                        <outlet property="logOutButton" destination="Qvq-4U-oTO" id="xTc-nS-SAR"/>
-                        <outlet property="signInButton" destination="K69-8h-X0p" id="X2x-97-91b"/>
-                        <outlet property="welcomeLabel" destination="IJJ-e4-D7e" id="6M2-fh-WqD"/>
                         <segue destination="Zk3-iI-Mba" kind="show" identifier="RecipesViewController" id="Jmo-cF-wJw"/>
                     </connections>
                 </viewController>
@@ -134,7 +136,7 @@
                         <viewControllerLayoutGuide type="top" id="Ly7-zY-tW2"/>
                         <viewControllerLayoutGuide type="bottom" id="U6m-IT-VOY"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5cO-ta-vTq">
+                    <view key="view" contentMode="scaleToFill" id="5cO-ta-vTq" customClass="RecipesView" customModule="RecipesList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -161,6 +163,9 @@
                             <constraint firstItem="c0i-9H-wGt" firstAttribute="top" secondItem="Ly7-zY-tW2" secondAttribute="bottom" id="8g5-cI-nD1"/>
                             <constraint firstAttribute="trailing" secondItem="c0i-9H-wGt" secondAttribute="trailing" id="9b5-gC-Fth"/>
                         </constraints>
+                        <connections>
+                            <outlet property="collectionView" destination="c0i-9H-wGt" id="kcp-m5-ofd"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="My Recipes" id="3bU-JC-kb4">
                         <barButtonItem key="leftBarButtonItem" title="LogOut" id="1TV-Vf-KVA">
@@ -175,7 +180,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="c0i-9H-wGt" id="Ues-hv-q3h"/>
                         <segue destination="hA0-tn-KJ9" kind="show" identifier="RecipeDetailViewController" id="WYs-Sf-bfH"/>
                         <segue destination="hfh-OQ-4vY" kind="show" identifier="EditRecipeViewController" id="Txr-Pi-5nE"/>
                     </connections>
@@ -255,7 +259,7 @@
                         <viewControllerLayoutGuide type="top" id="1OQ-S8-AvJ"/>
                         <viewControllerLayoutGuide type="bottom" id="SEk-gp-hz6"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HBn-iV-gmu">
+                    <view key="view" contentMode="scaleToFill" id="HBn-iV-gmu" customClass="RecipeDetailView" customModule="RecipesList" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -275,6 +279,10 @@
                             <constraint firstAttribute="trailing" secondItem="77s-rp-5uy" secondAttribute="trailing" id="iDi-yU-kPj"/>
                             <constraint firstItem="77s-rp-5uy" firstAttribute="leading" secondItem="HBn-iV-gmu" secondAttribute="leading" id="oIv-hT-ZSU"/>
                         </constraints>
+                        <connections>
+                            <outlet property="settingsButton" destination="isN-xN-u1g" id="Rvl-QF-413"/>
+                            <outlet property="tableView" destination="77s-rp-5uy" id="wMF-Oo-nYR"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe Detail" id="IFe-6P-zui">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="isN-xN-u1g">
@@ -284,8 +292,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="settingsButton" destination="isN-xN-u1g" id="kNc-SB-Tuj"/>
-                        <outlet property="tableView" destination="77s-rp-5uy" id="sF9-73-SXf"/>
                         <segue destination="dFO-Q0-AF4" kind="presentation" identifier="SettingsViewController" id="pxn-mZ-4ZC"/>
                         <segue destination="hfh-OQ-4vY" kind="show" identifier="EditRecipeViewController" id="8yo-pF-Ps6"/>
                         <segue destination="zfK-el-7dk" kind="show" identifier="LoadingCalculatorViewController" id="jPr-hv-qmm"/>
@@ -396,6 +402,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8yo-pF-Ps6"/>
+        <segue reference="Txr-Pi-5nE"/>
     </inferredMetricsTieBreakers>
 </document>

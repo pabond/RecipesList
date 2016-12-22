@@ -9,7 +9,7 @@
 import UIKit
 
 class RecipesViewController: ViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+    var recipesView: RecipesView?
     var recipes = Recipes()
     var user: GIDGoogleUser? {
         get {
@@ -26,7 +26,9 @@ class RecipesViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.registerCell(withClass: RecipeCollectionViewCell.self)
+        
+        recipesView = viewGetter()
+        recipesView?.collectionView.registerCell(withClass: RecipeCollectionViewCell.self)
     }
     
     //MARK: -
@@ -46,13 +48,13 @@ class RecipesViewController: ViewController {
     
     func addNewRecipe(_ recipe : Recipe?) {
         recipes.addModel(recipe)
-        collectionView.insertItems(at: [IndexPath(item: (recipes.count - 1), section: 0)])
+        recipesView?.collectionView.insertItems(at: [IndexPath(item: (recipes.count - 1), section: 0)])
     }
     
     func deleteRecipe(_ recipe: Recipe?) {
         let index = recipes.indexOfModel(recipe)
         recipes.removeModelAtIndex(index)
-        collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
+        recipesView?.collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,6 +127,6 @@ extension RecipesViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        collectionView.collectionViewLayout.invalidateLayout()
+        recipesView?.collectionView.collectionViewLayout.invalidateLayout()
     }
 }

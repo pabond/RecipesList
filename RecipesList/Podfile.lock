@@ -41,12 +41,16 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
 
 DEPENDENCIES:
   - Google/SignIn
+  - MagicalRecord
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
 
@@ -62,9 +66,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
 
-PODFILE CHECKSUM: 912c4031512a9011a6ef6975f666955d2e127324
+PODFILE CHECKSUM: 5d2c12fe4d11fd092c67d52a162aee0698813d61
 
 COCOAPODS: 1.1.1

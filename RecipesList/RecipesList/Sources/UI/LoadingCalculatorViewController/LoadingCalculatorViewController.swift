@@ -33,8 +33,9 @@ class LoadingCalculatorViewController: TableViewController {
     func onCalculate(_ textField: UITextField) {
         guard let weight = Float(textField.text!) else { return }
         if recipe?.weight != weight {
-            calculatedRecipe.applyToWeight(weight)
-            tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            _ = calculatedRecipe.applyToWeight(weight).subscribe { [weak self] (event) in
+                self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            }.addDisposableTo(desposeBag)
         }
     }
 }

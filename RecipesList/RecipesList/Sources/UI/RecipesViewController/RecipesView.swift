@@ -9,5 +9,5 @@
 import UIKit
 
 class RecipesView: UIView {
-
+    @IBOutlet weak var collectionView: UICollectionView!
 }

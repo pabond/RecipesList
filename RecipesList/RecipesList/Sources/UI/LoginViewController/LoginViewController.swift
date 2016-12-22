@@ -8,32 +8,9 @@
 
 import UIKit
 
-let animationDuration = 1.5
-let lowerAlpha: CGFloat = 0
-let upperAlpha: CGFloat = 1
-
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var logOutButton: UIButton!
-    @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var signInButton: GIDSignInButton!
-    var isSignedIn: Bool? {
-        didSet {
-            let value = isSignedIn
-            _ = view.subviews.flatMap { $0.alpha = lowerAlpha }
-            
-            continueButton.isHidden = !value!
-            logOutButton.isHidden = !value!
-            signInButton.isHidden = value!
-            welcomeLabel.isHidden = false
-
-            UIView.animate(withDuration: animationDuration, animations: {
-                _ = self.view.subviews.flatMap { $0.alpha = upperAlpha }
-            })
-        }
-    }
-    
+    var loginView: LoginView?
+        
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -42,6 +19,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginView = viewGetter()
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
@@ -69,23 +48,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
 extension LoginViewController : GIDSignInDelegate {
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if (error == nil) {
-            isSignedIn = true
-            welcomeLabel.text = "Welcome, " + user.profile.givenName
-            DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
-                let data:NSData? = NSData(contentsOf : user.profile.imageURL(withDimension: 300))
-                DispatchQueue.main.async { () -> Void in
-                    self?.avatarImageView.image = UIImage(data : data as! Data)
-                    self?.avatarImageView.isHidden = false
-                    UIView.animate(withDuration: animationDuration, animations: {
-                        self?.avatarImageView.alpha = upperAlpha
-                    })
-                }
-            }
-        } else {
-            print("\(error.localizedDescription)")
-            isSignedIn = false
-            welcomeLabel.text = "Please SignIn to continue"
-        }
+            loginView?.isSignedIn = error == nil
     }
 }

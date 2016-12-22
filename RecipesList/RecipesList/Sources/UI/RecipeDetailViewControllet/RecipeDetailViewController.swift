@@ -8,29 +8,16 @@
 
 import UIKit
 
-fileprivate let headerCellHeight: CGFloat = 170.0
-
 class RecipeDetailViewController: ViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    var recipeDetailView: RecipeDetailView?
     var deleteFunction: ((_ recipe: Recipe?) -> ())?
     var recipe: Recipe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = headerCellHeight
         
-        tableView.registerCells(withClasses: [RecipeDetailHeaderCell.self, RecipeComponentCell.self])
-        settingsButtonStyle()
-    }
-    
-    func settingsButtonStyle() {
-        self.settingsButton.title = NSString(string: "\u{2699}") as String
-        if let font = UIFont(name: "Helvetica", size: 18.0) {
-            self.settingsButton.setTitleTextAttributes([NSFontAttributeName: font], for: UIControlState.normal)
-        }
+        recipeDetailView = viewGetter()
+        recipeDetailView?.tableView.registerCells(withClasses: [RecipeDetailHeaderCell.self, RecipeComponentCell.self])
     }
     
     @IBAction func onSettings(_ sender: Any) {
@@ -51,7 +38,7 @@ class RecipeDetailViewController: ViewController {
     }
     
     func doneEdit(_ recipe: Recipe?) {
-        tableView.reloadData()
+        recipeDetailView?.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

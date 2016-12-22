@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 fileprivate let maxPercent: Float = 100
 
@@ -38,11 +39,15 @@ class CalculatedRecipe: NSObject {
         }
     }
     
-    func applyToWeight(_ recipeWeight: Float) {
-        components.forEach({
-            if let percent = $0.percentageInRecipe {
-                $0.componentDosage = recipeWeight * percent / maxPercent
-            }
-        })
+    func applyToWeight(_ recipeWeight: Float) -> Observable<Bool> {
+        return Observable.create { [weak self] observer in
+            self?.components.forEach({
+                if let percent = $0.percentageInRecipe {
+                    $0.componentDosage = recipeWeight * percent / maxPercent
+                }
+            })
+            observer.on(.completed)
+            return Disposables.create()
+        }
     }
 }

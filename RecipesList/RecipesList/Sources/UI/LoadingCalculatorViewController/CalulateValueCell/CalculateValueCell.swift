@@ -12,11 +12,6 @@ class CalculateValueCell: RecipeDetailCell {
     @IBOutlet weak var countTextField: UITextField!
     var calculateFunction: ((_ textField: UITextField) -> ())?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
-    
     override func fillWith(_ object: AnyObject?) {
         if let recipe = object as? Recipe {
             let weight = recipe.weight

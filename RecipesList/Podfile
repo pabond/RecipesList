@@ -2,7 +2,8 @@
 use_frameworks!
 
 target 'RecipesList' do
-  pod 'Google/SignIn'
-  pod 'RxSwift',    '~> 3.0'
-  pod 'RxCocoa',    '~> 3.0'
+	pod 'Google/SignIn'
+	pod 'RxSwift',    '~> 3.0'
+	pod 'RxCocoa',    '~> 3.0'
+	pod 'MagicalRecord'
 end
