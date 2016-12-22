@@ -10,8 +10,8 @@ import UIKit
 import Foundation
 
 extension UIViewController {
-    func getView<T>() -> T? {
-        return self.view as? T
+    func viewGetter<V>() -> V? {
+        return self.viewIfLoaded.flatMap({$0 as? V})
     }
     
     var isRegularWidthAndRegularHeight: Bool {

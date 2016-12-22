@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import RxSwift
 
 fileprivate let headerCellHeight: CGFloat = 140
 class LoadingCalculatorViewController: TableViewController {
+    let desposeBag = DisposeBag()
     @IBOutlet weak var tableView: UITableView!
     var recipe: Recipe? {
         didSet {
-            _ = recipe.map({ calculatedRecipe.fillWithRecipe($0) })
+            _ = recipe.flatMap({ calculatedRecipe.fillWithRecipe($0) })
         }
     }
     

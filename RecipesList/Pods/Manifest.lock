@@ -41,9 +41,14 @@ PODS:
   - GTMSessionFetcher/Core (1.1.7)
   - GTMSessionFetcher/Full (1.1.7):
     - GTMSessionFetcher/Core (= 1.1.7)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
 
 DEPENDENCIES:
   - Google/SignIn
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
 
 SPEC CHECKSUMS:
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
@@ -57,7 +62,9 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
 
-PODFILE CHECKSUM: 1dfce3b1bbac8f2c206aa1e96baf2be315535dcf
+PODFILE CHECKSUM: 912c4031512a9011a6ef6975f666955d2e127324
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
