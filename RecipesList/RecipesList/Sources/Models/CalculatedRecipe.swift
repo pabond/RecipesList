@@ -13,7 +13,7 @@ fileprivate let maxPercent: Float = 100
 
 class CalculatedRecipe: NSObject {
     var components = [RecipeComponent]()
-    var recipe: Recipe?
+    var recipe: CDRecipe?
     var count: Float? {
         get {
             var currentCount: Float = 0
@@ -21,22 +21,45 @@ class CalculatedRecipe: NSObject {
             return currentCount
         }
     }
+    
+    var weight: Float {
+        get {
+            var count: Float = 0
+            components.forEach({ _ = $0.componentDosage.map({ count += $0 }) })
+            
+            return count
+        }
+    }
 
-    func fillWithRecipe(_ recipe: Recipe) {
+    func fillWithRecipe(_ recipe: CDRecipe) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.recipe = recipe
-            let recipeWeight = recipe.weight
-            recipe.components.models.forEach({ [weak self] in
+            recipe.components?.allObjects.forEach({ [weak self] in
                 let currentComponent = $0 as? RecipeComponent
                 let component = RecipeComponent()
                 component.componentName = currentComponent?.componentName
-                let dosage = currentComponent?.componentDosage
-                component.componentDosage = dosage
-                component.percentageInRecipe = dosage! * maxPercent / recipeWeight
+                component.componentDosage = currentComponent?.componentDosage
                 
                 self?.components.append(component)
             })
+            
+            self?.addPercentage()
         }
+    }
+    
+    func addPercentage() {
+        let recipeWeight = weight
+        components.forEach({
+            var percentage: Float = 0
+            if let dosage = $0.componentDosage {
+                percentage = dosage * maxPercent / recipeWeight
+            } else {
+                percentage = 0
+            }
+            
+            $0.percentageInRecipe = percentage
+        })
+        
     }
     
     func applyToWeight(_ recipeWeight: Float) -> Observable<Bool> {

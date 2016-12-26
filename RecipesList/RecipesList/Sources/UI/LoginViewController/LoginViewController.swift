@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: ViewController, GIDSignInUIDelegate {
     var loginView: LoginView?
         
     required init?(coder aDecoder: NSCoder) {
@@ -40,8 +40,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == String(describing: RecipesViewController.self) {
-            guard let recipesVC = segue.destination as? RecipesViewController else { return }
-            //recipesVC.recipes = user.recipes?
+            guard let navigationVC = segue.destination as? UINavigationController else { return }
+            guard let recipesVC = navigationVC.viewControllers.first as? RecipesViewController else { return }
+            guard let user = sender as? GIDGoogleUser else { return }
+            recipesVC.user = CDUser.user(with: user)
         }
     }
 }

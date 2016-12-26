@@ -11,8 +11,8 @@ import UIKit
 fileprivate let headerCellHeight: CGFloat = 225.0
 
 class EditRecipeViewController: UITableViewController {
-    var doneFunction: ((_ recipe: Recipe?) -> ())?
-    var recipe: Recipe?
+    var doneFunction: ((_ recipe: CDRecipe?) -> ())?
+    var recipe: CDRecipe?
     var cells = [UITableViewCell]()
     
     fileprivate var startEditTextField: UITextField?
@@ -27,35 +27,27 @@ class EditRecipeViewController: UITableViewController {
         tableView.estimatedRowHeight = headerCellHeight
     }
     
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCellEditingStyle,
-                            forRowAt indexPath: IndexPath)
-    {
-        let row = indexPath.row
-        if editingStyle == .delete {
-            recipe?.removeComponentAtIndex(row - 1)
-            tableView.deleteRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row != 0
-    }
-    
     @IBAction func onDone(_ sender: Any) {
         cellDidEdit(editTextFieldCell, didEdit: startEditTextField)
-        prepareComponentsForSave()
         doneFunction.map { $0(recipe) }
         _ = navigationController?.popViewController(animated: true)
     }
-    
-    func prepareComponentsForSave() {
+
+    @IBAction func onCancel(_ sender: Any) {
+        let count = navigationController?.viewControllers.count
+        if count != nil && count! > 1 {
+            if ((navigationController?.viewControllers[count! - 2] as? RecipesViewController) != nil) {
+                recipe?.mr_deleteEntity()
+            }
+        }
         
+        _ = navigationController?.popViewController(animated: true)
     }
     
     func onAddComponent() {
-        recipe?.addComponent(RecipeComponent())
-        tableView.insertRows(at: [IndexPath.init(row: (recipe?.components.count)!, section: 0)], with: .automatic)
+        let component = CDComponent.create(recipe)
+        recipe?.componentsList?.addModel(component)
+        tableView.insertRows(at: [IndexPath.init(row: (recipe?.components?.allObjects.count)!, section: 0)], with: .automatic)
     }
     
     func onTextFieldStartEdit(_ cell: EditTableViewCell, didEdit textField: UITextField) {
@@ -72,20 +64,20 @@ class EditRecipeViewController: UITableViewController {
         
         if row == 0 {
             switch tag {
-            case 0: recipe?.name = text
-            case 1: recipe?.applications = text
-            case 2: recipe?.companies = text
+            case 0: recipe?.recipeName = text
+            case 1: recipe?.recipeApplications = text
+            case 2: recipe?.recipeCompanies = text
             default:
                 break
             }
         } else {
-            guard let component = recipe?.componentAtIndex(row - 1)
+            guard let component: CDComponent? = recipe?.components?.allObjects[(row - 1)] as? CDComponent?
                 else { return }
             switch tag {
-            case 0: component.componentName = text
+            case 0: component?.componentName = text
             case 1:
                 guard let floatStr = Float(text) else { return }
-                component.componentDosage = floatStr
+                component?.componentDosage = floatStr
             default:
                 break
             }
@@ -95,7 +87,7 @@ class EditRecipeViewController: UITableViewController {
 
 extension EditRecipeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (recipe?.components.count)! + 1
+        return (recipe?.components?.allObjects.count)! + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +99,7 @@ extension EditRecipeViewController {
             cell.addFunction = onAddComponent
         } else {
             cell = tableView.dequeueCellWithClass(RecipeComponentEditCell.self, indexPath: indexPath)
-            object = recipe?.components[row - 1]
+            object = recipe?.components?.allObjects[row - 1] as AnyObject?
         }
         
         if object != nil {
@@ -118,5 +110,21 @@ extension EditRecipeViewController {
         cell.startEditTextField = onTextFieldStartEdit
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath)
+    {
+        let row = indexPath.row
+        if editingStyle == .delete {
+            let component = recipe?.components?.allObjects[row - 1] as? CDComponent
+            recipe?.removeFromComponents(component!)
+            tableView.deleteRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row != 0
     }
 }

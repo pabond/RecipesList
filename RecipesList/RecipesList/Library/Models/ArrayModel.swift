@@ -8,7 +8,7 @@
 
 import UIKit
 
-let NotFound = Int(INT_MAX)
+let notFound = Int(INT_MAX)
 
 enum ModelChangeState {
     case BPVModelDidChange, BPVArrayModelCount
@@ -70,9 +70,9 @@ class ArrayModel : Model {
         return (models.contains(where: { $0 === model }))
     }
     
-    func indexOfModel(_ model: AnyObject?) -> Int {
+    func indexOfModel(_ model: AnyObject?) -> Int? {
         if model == nil && !containsModel(model) {
-            return NotFound
+            return nil
         }
         
         return (models.index(where: { $0 === model}))!
@@ -103,6 +103,4 @@ class ArrayModel : Model {
     func moveModel(from index: Int, to destIndex: Int) {
         models.move(from: index, to: destIndex)
     }
-
-   // - (void)notifyOfArrayChangeWithObject:(id)object;
 }

@@ -8,31 +8,21 @@
 
 import UIKit
 
-let kBatchSize: Int = 20
+let kBatchSize: Int = 10
 let kCacheName = "Master"
-let kUserID = "userID"
-
 
 class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
     var predicate: NSPredicate? {
-        get {
-            if keyPath != nil && self.object != nil {
-                return NSPredicate(format: "%K contains %@", argumentArray: [self.keyPath!, self.object!])
-            }
-            
-            return nil
-        }
+        get { return nil }
     }
     
     var sortDesriptor: NSSortDescriptor {
-        get {
-            return NSSortDescriptor(key: kUserID, ascending: false)
-        }
+        get { return NSSortDescriptor(key: "componentDosage", ascending: false) }
     }
     
     override var models: [AnyObject] {
         get {
-            return fetchedResultsController.fetchedObjects ?? super.models
+            return fetchedResultsController?.fetchedObjects ?? super.models
         }
         set {
             self.models = newValue
@@ -40,44 +30,44 @@ class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
     }
     
     var batchSize: Int {
-        get {
-            return kBatchSize
-        }
+        get { return kBatchSize }
     }
     
     var keyPath: String?
-    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> {
-        didSet {
-            fetchedResultsController.delegate = self
-        }
-    }
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    
     var object: NSManagedObject?
+    
+    var entityName: String {
+        get { return "" }
+    }
 
-    init(with object: NSManagedObject, keyPath path: String) {
+    init(with object: NSManagedObject?, keyPath path: String) {
         super.init()
         
-        self.object = object
         self.keyPath = path
-        self.fetchedResultsController = controller()
+        self.object = object
+        fetchedResultsController = controller()
     }
     
     func controller() -> NSFetchedResultsController<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: type(of: object)))
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         fetchRequest.fetchBatchSize = batchSize
-        fetchRequest.sortDescriptors = [sortDesriptor]
         fetchRequest.predicate = predicate
+        fetchRequest.sortDescriptors = [sortDesriptor]
         let context = NSManagedObjectContext.mr_default()
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                     managedObjectContext: context,
                                                     sectionNameKeyPath: nil,
                                                     cacheName: kCacheName)
+        controller.delegate = self
         
         return controller
     }
    
     func performLoading() {
         do {
-            try self.fetchedResultsController.performFetch()
+            try self.fetchedResultsController?.performFetch()
         } catch {
             let fetchError = error as NSError
             print("\(fetchError), \(fetchError.userInfo)")
@@ -85,11 +75,13 @@ class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
     }
     
     override func addModel(_ model: AnyObject?) {
-        object?.addCustomValue(model, forKey: keyPath)
+        if model != nil {
+            object?.addCustomValue(model, forKey: keyPath)
+        }
     }
     
     override func removeModel(_ model: AnyObject?) {
-        if containsModel(model) {
+        if model != nil {
             object?.removeCustomValue(model, forKey: keyPath)
         }
     }
@@ -105,10 +97,6 @@ class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
         
         return (models.index(where: { $0 === model }))
     }
-    
-    override func count() -> Int {
-        return models.count
-    }
 
     override func removeModelAtIndex(_ index: Int?) {
         removeModel(model(at: index))
@@ -121,23 +109,6 @@ class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
     override func insert(_ model: AnyObject?, at index: Int?) {
         return
     }
-    
-    override func containsModel(_ model: AnyObject?) -> Bool {
-        
-    }
-    
-    /*
-    - (BOOL)containsModel:(NSManagedObject *)model {
-    @synchronized (self) {
-    NSArray *array = [self.fetchedResultsController.fetchedObjects filteredUsingBlock:^BOOL(NSManagedObject *object) {
-    return [object.objectID isEqual:model.objectID];
-    }];
-    
-    return (BOOL)array.count;
-    }
-    }
- */
-
 
 // Mark -
 // Mark NSFetchedResultsControllerDelegate

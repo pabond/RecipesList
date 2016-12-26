@@ -14,9 +14,9 @@ class RecipeDetailHeaderCell: RecipeDetailCell {
     @IBOutlet weak var recipeCompanies: UILabel!
 
     override func fillWith(_ object: AnyObject?) {
-        guard let recipe = object as? Recipe else { return }
-        recipeName.text = recipe.name
-        recipeApplications.text = recipe.applications
-        recipeCompanies.text = recipe.companies
+        guard let recipe = object as? CDRecipe else { return }
+        recipeName.text = recipe.recipeName
+        recipeApplications.text = recipe.recipeApplications
+        recipeCompanies.text = recipe.recipeCompanies
     }
 }

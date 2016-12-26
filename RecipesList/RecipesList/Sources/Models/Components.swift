@@ -11,6 +11,6 @@ import UIKit
 class Components: ArrayModel {
     override init() {
         super.init()
-        models = [RecipeComponent]()
+     //   models = [RecipeComponent]()
     }
 }

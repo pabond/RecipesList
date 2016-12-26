@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDComponent" representedClassName=".CDComponent" syncable="YES">
+        <attribute name="componentDosage" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="componentName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDRecipe" inverseName="components" inverseEntity="CDRecipe" syncable="YES"/>
+    </entity>
+    <entity name="CDRecipe" representedClassName=".CDRecipe" syncable="YES">
+        <attribute name="recipeApplications" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipeCompanies" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipeName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="components" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDComponent" inverseName="recipe" inverseEntity="CDComponent" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="recipes" inverseEntity="CDUser" syncable="YES"/>
+    </entity>
+    <entity name="CDUser" representedClassName=".CDUser" syncable="YES">
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDRecipe" inverseName="user" inverseEntity="CDRecipe" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDComponent" positionX="151" positionY="-61" width="128" height="88"/>
+        <element name="CDRecipe" positionX="-315" positionY="-72" width="128" height="118"/>
+        <element name="CDUser" positionX="-182" positionY="120" width="128" height="88"/>
+    </elements>
+</model>

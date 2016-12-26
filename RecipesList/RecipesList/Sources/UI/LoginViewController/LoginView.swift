@@ -8,7 +8,7 @@
 
 import UIKit
 
-let animationDuration = 1.5
+let animationDuration = 1.0
 let lowerAlpha: CGFloat = 0
 let upperAlpha: CGFloat = 1
 

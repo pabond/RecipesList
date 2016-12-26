@@ -13,13 +13,12 @@ fileprivate let headerCellHeight: CGFloat = 140
 class LoadingCalculatorViewController: TableViewController {
     let desposeBag = DisposeBag()
     @IBOutlet weak var tableView: UITableView!
-    var recipe: Recipe? {
+    var calculatedRecipe = CalculatedRecipe()
+    var recipe: CDRecipe? {
         didSet {
             _ = recipe.flatMap({ calculatedRecipe.fillWithRecipe($0) })
         }
     }
-    
-    var calculatedRecipe = CalculatedRecipe()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class LoadingCalculatorViewController: TableViewController {
     
     func onCalculate(_ textField: UITextField) {
         guard let weight = Float(textField.text!) else { return }
-        if recipe?.weight != weight {
+        if calculatedRecipe.weight != weight {
             _ = calculatedRecipe.applyToWeight(weight).subscribe { [weak self] (event) in
                 self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
             }.addDisposableTo(desposeBag)
@@ -46,13 +45,13 @@ extension LoadingCalculatorViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipe != nil && section != 0 ? recipe!.components.count : 1
+        return recipe != nil && section != 0 ? (recipe!.components?.allObjects.count)! : 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: RecipeDetailCell
         let section = indexPath.section
-        var object: AnyObject? = recipe
+        var object: AnyObject? = calculatedRecipe
         if section == 0 {
             cell = tableView.dequeueCellWithClass(CalculateValueCell.self, indexPath: indexPath)
             if let cell = cell as? CalculateValueCell {

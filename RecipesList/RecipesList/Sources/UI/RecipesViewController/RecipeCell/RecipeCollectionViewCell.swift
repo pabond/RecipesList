@@ -23,10 +23,10 @@ class RecipeCollectionViewCell: UICollectionViewCell {
     }
     
     func fill(with object: AnyObject?) {
-        guard let recipe = object as? Recipe else { return }
+        guard let recipe = object as? CDRecipe else { return }
         
-        recipeName.text = recipe.name
-        recipeApplication.text = recipe.applications
-        companies.text = recipe.companies
+        recipeName.text = recipe.recipeName
+        recipeApplication.text = recipe.recipeApplications
+        companies.text = recipe.recipeCompanies
     }
 }

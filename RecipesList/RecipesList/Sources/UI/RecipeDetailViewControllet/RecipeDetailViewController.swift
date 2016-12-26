@@ -10,8 +10,8 @@ import UIKit
 
 class RecipeDetailViewController: ViewController {
     var recipeDetailView: RecipeDetailView?
-    var deleteFunction: ((_ recipe: Recipe?) -> ())?
-    var recipe: Recipe?
+    var deleteFunction: ((_ recipe: CDRecipe?) -> ())?
+    var recipe: CDRecipe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class RecipeDetailViewController: ViewController {
     }
     
     func onEdit(_ sender: Any) {
-        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: recipe)
+        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: nil)
     }
     
     func onDelete(_ sender: Any) {
@@ -34,10 +34,10 @@ class RecipeDetailViewController: ViewController {
     }
     
     func onCalculate(_ sender: Any) {
-        performSegue(toViewControllerWithClass: LoadingCalculatorViewController.self, sender: recipe)
+        performSegue(toViewControllerWithClass: LoadingCalculatorViewController.self, sender: nil)
     }
     
-    func doneEdit(_ recipe: Recipe?) {
+    func doneEdit(_ recipe: CDRecipe?) {
         recipeDetailView?.tableView.reloadData()
     }
     
@@ -50,18 +50,18 @@ class RecipeDetailViewController: ViewController {
             settingsVC.calculateFunction = onCalculate
         } else if identifier == String(describing: EditRecipeViewController.self) {
             guard let editVC = segue.destination as? EditRecipeViewController else { return }
-            editVC.recipe = sender as? Recipe
+            editVC.recipe = recipe
             editVC.doneFunction = doneEdit
         } else if identifier == String(describing: LoadingCalculatorViewController.self) {
             guard let calculateVC = segue.destination as? LoadingCalculatorViewController else { return }
-            calculateVC.recipe = sender as? Recipe
+            calculateVC.recipe = recipe
         }
     }
 }
 
 extension RecipeDetailViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (recipe?.components.count ?? 0) + 1
+        return (recipe?.components?.count ?? 0) + 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +72,7 @@ extension RecipeDetailViewController : UITableViewDataSource {
             cell = tableView.dequeueCellWithClass(RecipeDetailHeaderCell.self, indexPath: indexPath)
         } else {
             cell = tableView.dequeueCellWithClass(RecipeComponentCell.self, indexPath: indexPath)
-            object = recipe?.components[row - 1]
+            object = recipe?.components?.allObjects[row - 1] as AnyObject?
         }
         
         if (object != nil) {

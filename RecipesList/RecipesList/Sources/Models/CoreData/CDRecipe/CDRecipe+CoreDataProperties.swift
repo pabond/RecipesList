@@ -2,12 +2,13 @@
 //  CDRecipe+CoreDataProperties.swift
 //  RecipesList
 //
-//  Created by Bondar Pavel on 12/20/16.
+//  Created by Bondar Pavel on 12/24/16.
 //  Copyright © 2016 Pavel Bondar. All rights reserved.
 //
 
 import Foundation
 import CoreData
+
 
 extension CDRecipe {
 
@@ -15,10 +16,11 @@ extension CDRecipe {
         return NSFetchRequest<CDRecipe>(entityName: "CDRecipe");
     }
 
-    @NSManaged public var recipeName: String?
     @NSManaged public var recipeApplications: String?
     @NSManaged public var recipeCompanies: String?
+    @NSManaged public var recipeName: String?
     @NSManaged public var components: NSSet?
+    @NSManaged public var user: CDUser?
 
 }
 

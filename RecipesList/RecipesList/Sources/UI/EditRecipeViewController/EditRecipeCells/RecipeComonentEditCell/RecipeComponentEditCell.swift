@@ -18,10 +18,8 @@ class RecipeComponentEditCell : EditTableViewCell {
     }
     
     override func fillWith(_ object: AnyObject?) {
-        guard let component = object as? RecipeComponent else { return }
+        guard let component = object as? CDComponent else { return }
         componentName.text = component.componentName
-        if let dosage = component.componentDosage {
-            componentDosage.text = "\(dosage)"
-        }
+        componentDosage.text = "\(component.componentDosage)"
     }
 }

@@ -13,7 +13,7 @@ class CalculateValueCell: RecipeDetailCell {
     var calculateFunction: ((_ textField: UITextField) -> ())?
     
     override func fillWith(_ object: AnyObject?) {
-        if let recipe = object as? Recipe {
+        if let recipe = object as? CalculatedRecipe {
             let weight = recipe.weight
             countTextField.text = "\(weight)"
         }

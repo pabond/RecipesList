@@ -10,12 +10,13 @@ import UIKit
 
 class RecipesViewController: ViewController {
     var recipesView: RecipesView?
-    var recipes = Recipes()
-    var user: GIDGoogleUser? {
+    var recipes: [AnyObject]? {
         get {
-            return GIDSignIn.sharedInstance().currentUser
+            return user?.recipes?.allObjects as [AnyObject]?
         }
     }
+
+    var user: CDUser?
     
     fileprivate let inset: CGFloat = 10.0
     fileprivate var itemsPerRow: CGFloat = 2
@@ -23,6 +24,12 @@ class RecipesViewController: ViewController {
     
     //MARK: -
     //MARK: View lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        recipesView?.collectionView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +42,7 @@ class RecipesViewController: ViewController {
     //MARK: Interface Handling
     
     @IBAction func onAdd(_ sender: Any) {
-        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: Recipe())
+        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.create(user))
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -46,20 +53,21 @@ class RecipesViewController: ViewController {
     //MARK: -
     //MARK: Public implementations
     
-    func addNewRecipe(_ recipe : Recipe?) {
-        recipes.addModel(recipe)
-        recipesView?.collectionView.insertItems(at: [IndexPath(item: (recipes.count - 1), section: 0)])
+    func addNewRecipe(_ recipe : CDRecipe?) {
+        user?.recipesList?.addModel(recipe)
+        recipesView?.collectionView.reloadData()
     }
     
-    func deleteRecipe(_ recipe: Recipe?) {
-        let index = recipes.indexOfModel(recipe)
-        recipes.removeModelAtIndex(index)
-        recipesView?.collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
+    func deleteRecipe(_ recipe: CDRecipe?) {
+        if let recipe = recipe {
+            user?.recipesList?.removeModel(recipe)
+            recipesView?.collectionView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier
-        let recipe = sender as? Recipe
+        let recipe = sender as? CDRecipe
         if identifier == String(describing: EditRecipeViewController.self) {
             guard let editVC = segue.destination as? EditRecipeViewController else { return }
             editVC.doneFunction = addNewRecipe
@@ -77,13 +85,12 @@ class RecipesViewController: ViewController {
     
 extension RecipesViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return recipes.count 
+        return recipes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: RecipeCollectionViewCell = collectionView.cellWithClass(RecipeCollectionViewCell.self, for: indexPath) as! RecipeCollectionViewCell
-        
-        cell.object = recipes[indexPath.row]
+        let cell = collectionView.cellWithClass(RecipeCollectionViewCell.self, for: indexPath) as! RecipeCollectionViewCell
+        cell.object = recipes?[indexPath.row]
         
         return cell
     }
@@ -96,7 +103,7 @@ extension RecipesViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        performSegue(toViewControllerWithClass: RecipeDetailViewController.self, sender: recipes[indexPath.row])
+        performSegue(toViewControllerWithClass: RecipeDetailViewController.self, sender: recipes?[indexPath.row])
     }
 }
 

@@ -24,13 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func magicalRecordSetup() {
         MagicalRecord.enableShorthandMethods()
-        MagicalRecord.setupCoreDataStack()
+        MagicalRecord.setupCoreDataStack(withStoreNamed: "Resipes.store")
     }
     
     func signInSetup() {
         var configureError: NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
+    }
+    
+    func save() {
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (saved, error) in
+            let saveError: NSError? = error as? NSError
+            print("\(saveError), \(saveError?.userInfo)")
+        }
     }
     
     func application(_ app: UIApplication,
@@ -44,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        
+        save()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -60,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        
+        save()
     }
 }
 

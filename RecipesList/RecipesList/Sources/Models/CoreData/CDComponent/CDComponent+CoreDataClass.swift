@@ -10,5 +10,11 @@ import Foundation
 import CoreData
 
 public class CDComponent: NSManagedObject {
-
+    
+    class func create(_ recipe: CDRecipe?) -> CDComponent? {
+        let component = CDComponent.mr_createEntity()
+        component?.recipe = recipe
+        
+        return component
+    }
 }

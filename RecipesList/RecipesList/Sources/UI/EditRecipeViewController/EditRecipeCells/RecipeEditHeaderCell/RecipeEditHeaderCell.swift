@@ -24,9 +24,9 @@ class RecipeEditHeaderCell: EditTableViewCell {
     }
     
     override func fillWith(_ object: AnyObject?) {
-        guard let recipe = object as? Recipe else { return }
-        recipeName.text = recipe.name
-        recipeApplication.text = recipe.applications
-        companies.text = recipe.companies
+        guard let recipe = object as? CDRecipe else { return }
+        recipeName.text = recipe.recipeName
+        recipeApplication.text = recipe.recipeApplications
+        companies.text = recipe.recipeCompanies
     }
 }

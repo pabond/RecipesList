@@ -4,3 +4,4 @@
 
 #import <Google/SignIn.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import "NSManagedObject+BPVExtensions.h"

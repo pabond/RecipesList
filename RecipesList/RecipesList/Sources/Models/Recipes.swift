@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import CoreData
 
 class Recipes: ArrayModel {
     override init() {
         super.init()
-        models = [Recipe]()
+//        models = [Recipe]()
     }
 }
