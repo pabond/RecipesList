@@ -11,13 +11,13 @@ import UIKit
 let kBatchSize: Int = 10
 let kCacheName = "Master"
 
-class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
+class DBArrayModel: ArrayModel {
     var predicate: NSPredicate? {
         get { return nil }
     }
     
     var sortDesriptor: NSSortDescriptor {
-        get { return NSSortDescriptor(key: "componentDosage", ascending: false) }
+        get { return NSSortDescriptor(key: "", ascending: false) }
     }
     
     override var models: [AnyObject] {
@@ -109,15 +109,27 @@ class DBArrayModel: ArrayModel, NSFetchedResultsControllerDelegate {
     override func insert(_ model: AnyObject?, at index: Int?) {
         return
     }
+}
 
 // Mark -
 // Mark NSFetchedResultsControllerDelegate
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChange anObject: Any, at indexPath: IndexPath?,
-                    for type: NSFetchedResultsChangeType,
-                    newIndexPath: IndexPath?)
+
+extension DBArrayModel : NSFetchedResultsControllerDelegate {
+    func controller(controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChangeObject anObject: AnyObject,
+                    atIndexPath indexPath: NSIndexPath?,
+                    forChangeType type: NSFetchedResultsChangeType,
+                    newIndexPath: NSIndexPath?)
     {
-        
+        switch type {
+        case .insert: break
+            
+        case .delete: break
+            
+        case .update: break
+            
+        case .move: break
+            
+        }
     }
 }

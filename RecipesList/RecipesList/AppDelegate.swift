@@ -33,13 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
     }
     
-    func save() {
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (saved, error) in
-            let saveError: NSError? = error as? NSError
-            print("\(saveError), \(saveError?.userInfo)")
-        }
-    }
-    
     func application(_ app: UIApplication,
                      open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool
@@ -48,6 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .handle(url,
                     sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                     annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+    }
+    
+    func save() {
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStore { (saved, error) in
+            let saveError: NSError? = error as? NSError
+            print("\(saveError), \(saveError?.userInfo)")
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

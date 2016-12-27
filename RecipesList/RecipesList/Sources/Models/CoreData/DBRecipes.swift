@@ -26,4 +26,8 @@ class DBRecipes: DBArrayModel {
             return super.predicate
         }
     }
+    
+    override var sortDesriptor: NSSortDescriptor {
+        get { return NSSortDescriptor(key: "recipeName", ascending: false) }
+    }
 }

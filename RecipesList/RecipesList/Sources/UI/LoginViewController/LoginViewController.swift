@@ -10,13 +10,19 @@ import UIKit
 
 class LoginViewController: ViewController, GIDSignInUIDelegate {
     var loginView: LoginView?
-        
+    
+    //MARK: -
+    //MARK: Initializations / deinitializtions
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         GIDSignIn.sharedInstance().delegate = self
     }
 
+    //MARK: -
+    //MARK: View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
