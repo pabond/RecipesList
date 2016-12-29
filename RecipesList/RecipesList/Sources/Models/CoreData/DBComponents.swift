@@ -19,7 +19,7 @@ class DBComponents: DBArrayModel {
     override var predicate: NSPredicate? {
         get {
             if keyPath != nil && self.object != nil {
-                return NSPredicate(format: "object.userID == recipe.user.userID", argumentArray: [object as Any])
+                return NSPredicate(format: "recipe == %@", argumentArray: [object as! CDRecipe])
             }
             
             return super.predicate
@@ -27,6 +27,6 @@ class DBComponents: DBArrayModel {
     }
     
     override var sortDesriptor: NSSortDescriptor {
-        get { return NSSortDescriptor(key: "componentDosage", ascending: false) }
+        get { return NSSortDescriptor(key: "id", ascending: false) }
     }
 }

@@ -3,6 +3,7 @@
     <entity name="CDComponent" representedClassName=".CDComponent" syncable="YES">
         <attribute name="componentDosage" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="componentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDRecipe" inverseName="components" inverseEntity="CDRecipe" syncable="YES"/>
     </entity>
     <entity name="CDRecipe" representedClassName=".CDRecipe" syncable="YES">
@@ -18,7 +19,7 @@
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDRecipe" inverseName="user" inverseEntity="CDRecipe" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDComponent" positionX="151" positionY="-61" width="128" height="88"/>
+        <element name="CDComponent" positionX="151" positionY="-61" width="128" height="103"/>
         <element name="CDRecipe" positionX="-315" positionY="-72" width="128" height="118"/>
         <element name="CDUser" positionX="-182" positionY="120" width="128" height="88"/>
     </elements>

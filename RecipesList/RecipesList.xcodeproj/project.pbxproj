@@ -59,10 +59,6 @@
 		2D06075F1E0AA3FD00AA0C41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D06075C1E0AA3FD00AA0C41 /* Main.storyboard */; };
 		2D64F3491E0C3ED500F6C968 /* DBArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */; };
 		2D64F34D1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D64F34C1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m */; };
-		2DFA62971E10DE9D00304A70 /* CDComponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA628A1E10DE9D00304A70 /* CDComponent+CoreDataClass.swift */; };
-		2DFA62981E10DE9D00304A70 /* CDComponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA628B1E10DE9D00304A70 /* CDComponent+CoreDataProperties.swift */; };
-		2DFA62991E10DE9D00304A70 /* CDRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA628D1E10DE9D00304A70 /* CDRecipe+CoreDataClass.swift */; };
-		2DFA629A1E10DE9D00304A70 /* CDRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA628E1E10DE9D00304A70 /* CDRecipe+CoreDataProperties.swift */; };
 		2DFA629B1E10DE9D00304A70 /* CDUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62901E10DE9D00304A70 /* CDUser+CoreDataClass.swift */; };
 		2DFA629C1E10DE9D00304A70 /* CDUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62911E10DE9D00304A70 /* CDUser+CoreDataProperties.swift */; };
 		2DFA629D1E10DE9D00304A70 /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62931E10DE9D00304A70 /* DataBase.xcdatamodeld */; };
@@ -70,6 +66,10 @@
 		2DFA629F1E10DE9D00304A70 /* DBRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62961E10DE9D00304A70 /* DBRecipes.swift */; };
 		2DFA62BF1E128E4900304A70 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62BD1E128E4900304A70 /* Components.swift */; };
 		2DFA62C01E128E4900304A70 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62BE1E128E4900304A70 /* Recipes.swift */; };
+		2DFA62CF1E12A42400304A70 /* CDComponent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62CA1E12A42400304A70 /* CDComponent+CoreDataClass.swift */; };
+		2DFA62D01E12A42400304A70 /* CDComponent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62CB1E12A42400304A70 /* CDComponent+CoreDataProperties.swift */; };
+		2DFA62D11E12A42400304A70 /* CDRecipe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62CD1E12A42400304A70 /* CDRecipe+CoreDataClass.swift */; };
+		2DFA62D21E12A42400304A70 /* CDRecipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62CE1E12A42400304A70 /* CDRecipe+CoreDataProperties.swift */; };
 		638B0E0FEC276B2F35B21A53 /* Pods_RecipesList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 972610C38E5E7F64DBA48A4B /* Pods_RecipesList.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,7 +119,6 @@
 		2D0606D71E0A97DE00AA0C41 /* CalculatedRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatedRecipe.swift; sourceTree = "<group>"; };
 		2D0606E01E0A97DE00AA0C41 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2D0606E11E0A97DE00AA0C41 /* RecipeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeComponent.swift; sourceTree = "<group>"; };
-		2D0606E31E0A97DE00AA0C41 /* RecipesList-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RecipesList-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D0606E71E0A97DE00AA0C41 /* EditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
 		2D0606E91E0A97DE00AA0C41 /* RecipeComponentEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeComponentEditCell.swift; sourceTree = "<group>"; };
 		2D0606EA1E0A97DE00AA0C41 /* RecipeComponentEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeComponentEditCell.xib; sourceTree = "<group>"; };
@@ -152,10 +151,6 @@
 		2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBArrayModel.swift; sourceTree = "<group>"; };
 		2D64F34B1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+BPVExtensions.h"; sourceTree = "<group>"; };
 		2D64F34C1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+BPVExtensions.m"; sourceTree = "<group>"; };
-		2DFA628A1E10DE9D00304A70 /* CDComponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDComponent+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2DFA628B1E10DE9D00304A70 /* CDComponent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDComponent+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2DFA628D1E10DE9D00304A70 /* CDRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2DFA628E1E10DE9D00304A70 /* CDRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2DFA62901E10DE9D00304A70 /* CDUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2DFA62911E10DE9D00304A70 /* CDUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2DFA62941E10DE9D00304A70 /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
@@ -163,6 +158,10 @@
 		2DFA62961E10DE9D00304A70 /* DBRecipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRecipes.swift; sourceTree = "<group>"; };
 		2DFA62BD1E128E4900304A70 /* Components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		2DFA62BE1E128E4900304A70 /* Recipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
+		2DFA62CA1E12A42400304A70 /* CDComponent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDComponent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2DFA62CB1E12A42400304A70 /* CDComponent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDComponent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2DFA62CD1E12A42400304A70 /* CDRecipe+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDRecipe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2DFA62CE1E12A42400304A70 /* CDRecipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDRecipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		414134012F3211C5422B5187 /* Pods-RecipesList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RecipesList/Pods-RecipesList.debug.xcconfig"; sourceTree = "<group>"; };
 		532BC55D700BC5CDA93A15FC /* Pods-RecipesList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipesList.release.xcconfig"; path = "Pods/Target Support Files/Pods-RecipesList/Pods-RecipesList.release.xcconfig"; sourceTree = "<group>"; };
 		972610C38E5E7F64DBA48A4B /* Pods_RecipesList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipesList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				2D0606D61E0A97DE00AA0C41 /* Models */,
-				2D0606E31E0A97DE00AA0C41 /* RecipesList-Bridging-Header.h */,
 				2D0606E41E0A97DE00AA0C41 /* UI */,
 			);
 			path = Sources;
@@ -525,32 +523,14 @@
 		2DFA62881E10DE9D00304A70 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				2DFA62921E10DE9D00304A70 /* DB */,
-				2DFA62891E10DE9D00304A70 /* CDComponent */,
-				2DFA628C1E10DE9D00304A70 /* CDRecipe */,
-				2DFA628F1E10DE9D00304A70 /* CDUser */,
 				2DFA62951E10DE9D00304A70 /* DBComponents.swift */,
 				2DFA62961E10DE9D00304A70 /* DBRecipes.swift */,
+				2DFA62C91E12A42400304A70 /* CDComponent */,
+				2DFA62CC1E12A42400304A70 /* CDRecipe */,
+				2DFA62921E10DE9D00304A70 /* DB */,
+				2DFA628F1E10DE9D00304A70 /* CDUser */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		2DFA62891E10DE9D00304A70 /* CDComponent */ = {
-			isa = PBXGroup;
-			children = (
-				2DFA628A1E10DE9D00304A70 /* CDComponent+CoreDataClass.swift */,
-				2DFA628B1E10DE9D00304A70 /* CDComponent+CoreDataProperties.swift */,
-			);
-			path = CDComponent;
-			sourceTree = "<group>";
-		};
-		2DFA628C1E10DE9D00304A70 /* CDRecipe */ = {
-			isa = PBXGroup;
-			children = (
-				2DFA628D1E10DE9D00304A70 /* CDRecipe+CoreDataClass.swift */,
-				2DFA628E1E10DE9D00304A70 /* CDRecipe+CoreDataProperties.swift */,
-			);
-			path = CDRecipe;
 			sourceTree = "<group>";
 		};
 		2DFA628F1E10DE9D00304A70 /* CDUser */ = {
@@ -577,6 +557,24 @@
 				2DFA62BE1E128E4900304A70 /* Recipes.swift */,
 			);
 			path = Collections;
+			sourceTree = "<group>";
+		};
+		2DFA62C91E12A42400304A70 /* CDComponent */ = {
+			isa = PBXGroup;
+			children = (
+				2DFA62CA1E12A42400304A70 /* CDComponent+CoreDataClass.swift */,
+				2DFA62CB1E12A42400304A70 /* CDComponent+CoreDataProperties.swift */,
+			);
+			path = CDComponent;
+			sourceTree = "<group>";
+		};
+		2DFA62CC1E12A42400304A70 /* CDRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				2DFA62CD1E12A42400304A70 /* CDRecipe+CoreDataClass.swift */,
+				2DFA62CE1E12A42400304A70 /* CDRecipe+CoreDataProperties.swift */,
+			);
+			path = CDRecipe;
 			sourceTree = "<group>";
 		};
 		5AE636AAA67DC473EF438C51 /* Frameworks */ = {
@@ -799,7 +797,6 @@
 				2D0607171E0A97DE00AA0C41 /* TrancitionViewController.swift in Sources */,
 				2D0607351E0A97DE00AA0C41 /* RecipeDetailView.swift in Sources */,
 				2D0607101E0A97DE00AA0C41 /* ArrayModel.swift in Sources */,
-				2DFA629A1E10DE9D00304A70 /* CDRecipe+CoreDataProperties.swift in Sources */,
 				2D06072B1E0A97DE00AA0C41 /* CalculateValueCell.swift in Sources */,
 				2D06070B1E0A97DE00AA0C41 /* UICollectionView.swift in Sources */,
 				2DFA62BF1E128E4900304A70 /* Components.swift in Sources */,
@@ -808,7 +805,6 @@
 				2D0607251E0A97DE00AA0C41 /* EditTableViewCell.swift in Sources */,
 				2D0607111E0A97DE00AA0C41 /* Model.swift in Sources */,
 				2D06073B1E0A97DE00AA0C41 /* SettingsViewController.swift in Sources */,
-				2DFA62971E10DE9D00304A70 /* CDComponent+CoreDataClass.swift in Sources */,
 				2D64F3491E0C3ED500F6C968 /* DBArrayModel.swift in Sources */,
 				2D0607361E0A97DE00AA0C41 /* RecipeDetailViewController.swift in Sources */,
 				2D0607141E0A97DE00AA0C41 /* SlideInPresentationManager.swift in Sources */,
@@ -819,14 +815,14 @@
 				2DFA629C1E10DE9D00304A70 /* CDUser+CoreDataProperties.swift in Sources */,
 				2DFA62C01E128E4900304A70 /* Recipes.swift in Sources */,
 				2D0607371E0A97DE00AA0C41 /* RecipeCollectionViewCell.swift in Sources */,
+				2DFA62D11E12A42400304A70 /* CDRecipe+CoreDataClass.swift in Sources */,
+				2DFA62D01E12A42400304A70 /* CDComponent+CoreDataProperties.swift in Sources */,
 				2D06073A1E0A97DE00AA0C41 /* RecipesViewController.swift in Sources */,
-				2DFA62991E10DE9D00304A70 /* CDRecipe+CoreDataClass.swift in Sources */,
 				2D06072F1E0A97DE00AA0C41 /* LoginViewController.swift in Sources */,
 				2D0607151E0A97DE00AA0C41 /* SlideOutAnimationController.swift in Sources */,
 				2D06072D1E0A97DE00AA0C41 /* LoadingCalculatorViewController.swift in Sources */,
 				2DFA629B1E10DE9D00304A70 /* CDUser+CoreDataClass.swift in Sources */,
 				2D06070C1E0A97DE00AA0C41 /* UINib.swift in Sources */,
-				2DFA62981E10DE9D00304A70 /* CDComponent+CoreDataProperties.swift in Sources */,
 				2D06070D1E0A97DE00AA0C41 /* UITableView.swift in Sources */,
 				2DFA629D1E10DE9D00304A70 /* DataBase.xcdatamodeld in Sources */,
 				2D0607131E0A97DE00AA0C41 /* SlideInPresentationController.swift in Sources */,
@@ -834,7 +830,9 @@
 				2D0607221E0A97DE00AA0C41 /* Recipe.swift in Sources */,
 				2D0607331E0A97DE00AA0C41 /* RecipeDetailHeaderCell.swift in Sources */,
 				2DFA629F1E10DE9D00304A70 /* DBRecipes.swift in Sources */,
+				2DFA62D21E12A42400304A70 /* CDRecipe+CoreDataProperties.swift in Sources */,
 				2D0607281E0A97DE00AA0C41 /* RecipeEditHeaderCell.swift in Sources */,
+				2DFA62CF1E12A42400304A70 /* CDComponent+CoreDataClass.swift in Sources */,
 				2D0607161E0A97DE00AA0C41 /* TableViewController.swift in Sources */,
 				2D06070F1E0A97DE00AA0C41 /* UIWindow.swift in Sources */,
 				2D0607391E0A97DE00AA0C41 /* RecipesView.swift in Sources */,

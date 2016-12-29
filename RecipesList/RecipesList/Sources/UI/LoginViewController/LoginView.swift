@@ -39,6 +39,7 @@ class LoginView: UIView {
                 loadAvatarImage()
             }
             
+            avatarImageView.isHidden = !isSignedIn
             continueButton.isHidden = !isSignedIn
             logOutButton.isHidden = !isSignedIn
             signInButton.isHidden = isSignedIn

@@ -20,7 +20,7 @@ class DBRecipes: DBArrayModel {
     override var predicate: NSPredicate? {
         get {
             if keyPath != nil && self.object != nil {
-                return NSPredicate(format: "user.userID == user.userID", argumentArray: [object as Any])
+                return NSPredicate(format: "user.userID == %@", argumentArray: [(object as! CDUser).userID!])
             }
             
             return super.predicate

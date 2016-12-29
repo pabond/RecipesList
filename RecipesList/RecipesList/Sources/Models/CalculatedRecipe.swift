@@ -35,7 +35,7 @@ class CalculatedRecipe: NSObject {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.recipe = recipe
             recipe.components?.allObjects.forEach({ [weak self] in
-                let currentComponent = $0 as? RecipeComponent
+                let currentComponent = $0 as? CDComponent
                 let component = RecipeComponent()
                 component.componentName = currentComponent?.componentName
                 component.componentDosage = currentComponent?.componentDosage

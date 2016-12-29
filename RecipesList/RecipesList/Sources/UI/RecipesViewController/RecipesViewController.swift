@@ -28,7 +28,9 @@ class RecipesViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        recipesView?.collectionView.reloadData()
+        if isViewLoaded {
+            recipesView?.collectionView.reloadData()
+        }
     }
     
     override func viewDidLoad() {
@@ -42,18 +44,19 @@ class RecipesViewController: ViewController {
     //MARK: Interface Handling
     
     @IBAction func onAdd(_ sender: Any) {
-        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.create(user))
+        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.mr_createEntity())
     }
     
     @IBAction func onLogout(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
-        popCurrentViewController()
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     //MARK: -
     //MARK: Public implementations
     
     func addNewRecipe(_ recipe : CDRecipe?) {
+        recipe?.user = user
         user?.recipesList?.addModel(recipe)
         recipesView?.collectionView.reloadData()
     }

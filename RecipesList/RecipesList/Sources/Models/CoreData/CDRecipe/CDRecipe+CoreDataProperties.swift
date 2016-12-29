@@ -2,7 +2,7 @@
 //  CDRecipe+CoreDataProperties.swift
 //  RecipesList
 //
-//  Created by Bondar Pavel on 12/24/16.
+//  Created by Bondar Pavel on 12/27/16.
 //  Copyright © 2016 Pavel Bondar. All rights reserved.
 //
 

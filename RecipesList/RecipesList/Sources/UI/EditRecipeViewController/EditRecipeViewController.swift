@@ -47,7 +47,7 @@ class EditRecipeViewController: UITableViewController {
     func onAddComponent() {
         let component = CDComponent.create(recipe)
         recipe?.componentsList?.addModel(component)
-        tableView.insertRows(at: [IndexPath.init(row: (recipe?.components?.allObjects.count)!, section: 0)], with: .automatic)
+        tableView.reloadData()
     }
     
     func onTextFieldStartEdit(_ cell: EditTableViewCell, didEdit textField: UITextField) {

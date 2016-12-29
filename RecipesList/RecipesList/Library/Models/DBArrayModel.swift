@@ -34,7 +34,7 @@ class DBArrayModel: ArrayModel {
     }
     
     var keyPath: String?
-    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>?
+    var fetchedResultsController: NSFetchedResultsController<NSManagedObject>?
     
     var object: NSManagedObject?
     
@@ -50,8 +50,8 @@ class DBArrayModel: ArrayModel {
         fetchedResultsController = controller()
     }
     
-    func controller() -> NSFetchedResultsController<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+    func controller() -> NSFetchedResultsController<NSManagedObject> {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         fetchRequest.fetchBatchSize = batchSize
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDesriptor]
@@ -60,6 +60,14 @@ class DBArrayModel: ArrayModel {
                                                     managedObjectContext: context,
                                                     sectionNameKeyPath: nil,
                                                     cacheName: kCacheName)
+        
+        do {
+            try controller.performFetch()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
         controller.delegate = self
         
         return controller
@@ -115,21 +123,21 @@ class DBArrayModel: ArrayModel {
 // Mark NSFetchedResultsControllerDelegate
 
 extension DBArrayModel : NSFetchedResultsControllerDelegate {
-    func controller(controller: NSFetchedResultsController<NSFetchRequestResult>,
-                    didChangeObject anObject: AnyObject,
-                    atIndexPath indexPath: NSIndexPath?,
-                    forChangeType type: NSFetchedResultsChangeType,
-                    newIndexPath: NSIndexPath?)
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any,
+                    at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?)
     {
         switch type {
-        case .insert: break
-            
-        case .delete: break
-            
-        case .update: break
-            
-        case .move: break
-            
+        case .insert:
+            print(".insert")
+        case .delete:
+            print(".delete")
+        case .update:
+            print(".update")
+        case .move:
+            print(".move")
         }
     }
 }

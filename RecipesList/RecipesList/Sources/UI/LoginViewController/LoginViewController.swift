@@ -23,6 +23,12 @@ class LoginViewController: ViewController, GIDSignInUIDelegate {
     //MARK: -
     //MARK: View lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loginView?.isSignedIn = GIDSignIn.sharedInstance().currentUser != nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

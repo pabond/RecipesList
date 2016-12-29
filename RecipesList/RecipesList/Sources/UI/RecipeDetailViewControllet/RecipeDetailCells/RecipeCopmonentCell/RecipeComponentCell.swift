@@ -17,8 +17,12 @@ class RecipeComponentCell: RecipeDetailCell {
     }
     
     override func fillWith(_ object: AnyObject?) {
-        guard let component = object as? CDComponent else { return }
-        componentName.text = component.componentName
-        componentDosage.text = "\(component.componentDosage)"
+        if let component = object as? CDComponent {
+            componentName.text = component.componentName
+            componentDosage.text = "\(component.componentDosage)"
+        } else if let component = object as? RecipeComponent {
+            componentName.text = component.componentName
+            componentDosage.text = "\(component.componentDosage!)"
+        }
     }
 }
