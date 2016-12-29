@@ -17,10 +17,16 @@ class RecipeCollectionViewCell: UICollectionViewCell {
             fill(with: object)
         }
     }
+    
+    //MARK: -
+    //MARK: View lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    //MARK: -
+    //MARK: Public Implementations
     
     func fill(with object: AnyObject?) {
         guard let recipe = object as? CDRecipe else { return }

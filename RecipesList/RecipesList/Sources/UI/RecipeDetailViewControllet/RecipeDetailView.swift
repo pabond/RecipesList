@@ -14,6 +14,9 @@ class RecipeDetailView: UIView {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
+    //MARK: -
+    //MARK: View lifecycle
+    
     override func awakeFromNib() {
         settingsButtonStyle()
         

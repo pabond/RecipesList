@@ -20,6 +20,9 @@ class LoadingCalculatorViewController: TableViewController {
         }
     }
     
+    //MARK: -
+    //MARK: View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +31,9 @@ class LoadingCalculatorViewController: TableViewController {
         
         tableView.registerCells(withClasses: [CalculateValueCell.self, RecipeComponentCell.self])
     }
+    
+    //MARK: -
+    //MARK: Interface Handling
     
     func onCalculate(_ textField: UITextField) {
         guard let weight = Float(textField.text!) else { return }
@@ -38,6 +44,9 @@ class LoadingCalculatorViewController: TableViewController {
         }
     }
 }
+
+//MARK: -
+//MARK: UITableViewDataSource
 
 extension LoadingCalculatorViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

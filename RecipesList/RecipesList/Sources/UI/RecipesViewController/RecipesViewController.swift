@@ -63,13 +63,11 @@ class RecipesViewController: ViewController {
     func addNewRecipe(_ recipe : CDRecipe?) {
         recipe?.user = user
         user?.recipesList?.addModel(recipe)
-//        recipesView?.collectionView.reloadData()
     }
     
     func deleteRecipe(_ recipe: CDRecipe?) {
         if let recipe = recipe {
             user?.recipesList?.removeModel(recipe)
-//            recipesView?.collectionView.reloadData()
         }
     }
     

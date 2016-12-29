@@ -20,6 +20,9 @@ class EditRecipeViewController: UITableViewController {
     fileprivate var startEditTextField: UITextField?
     fileprivate var editTextFieldCell: EditTableViewCell?
 
+    //MARK: -
+    //MARK: View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +34,9 @@ class EditRecipeViewController: UITableViewController {
             _ = change.map({ $0.apply(to: self.tableView) })
         }).addDisposableTo(disposeBag)
     }
+    
+    //MARK: -
+    //MARK: Interface Handling
     
     @IBAction func onDone(_ sender: Any) {
         cellDidEdit(editTextFieldCell, didEdit: startEditTextField)
@@ -52,13 +58,15 @@ class EditRecipeViewController: UITableViewController {
     func onAddComponent() {
         let component = CDComponent.create(recipe)
         recipe?.componentsList?.addModel(component)
-//        tableView.reloadData()
     }
     
     func onTextFieldStartEdit(_ cell: EditTableViewCell, didEdit textField: UITextField) {
         startEditTextField = textField
         editTextFieldCell = cell
     }
+    
+    //MARK: -
+    //MARK: Public Implementations
     
     func cellDidEdit(_ cell: EditTableViewCell?, didEdit textField: UITextField?) -> () {
         let text = textField?.text ?? ""
@@ -89,6 +97,9 @@ class EditRecipeViewController: UITableViewController {
         }
     }
 }
+
+//MARK: -
+//MARK: UITableViewDataSource
 
 extension EditRecipeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,7 +136,6 @@ extension EditRecipeViewController {
         if editingStyle == .delete {
             let component = recipe?.components?.allObjects[row - 1] as? CDComponent
             recipe?.removeFromComponents(component!)
-//            tableView.deleteRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
         }
     }
     

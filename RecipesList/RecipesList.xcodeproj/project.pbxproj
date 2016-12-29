@@ -74,6 +74,8 @@
 		2D5942491E1585C3005E037F /* MoveModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942481E1585C3005E037F /* MoveModel + UICollectionView.swift */; };
 		2D59424B1E1585D6005E037F /* RemoveModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59424A1E1585D6005E037F /* RemoveModel + UICollectionView.swift */; };
 		2D59424D1E1585E2005E037F /* UpdateModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59424C1E1585E2005E037F /* UpdateModel + UICollectionView.swift */; };
+		2D5942501E15A399005E037F /* AppDelegate + SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59424F1E15A399005E037F /* AppDelegate + SignIn.swift */; };
+		2D5942521E15A40A005E037F /* AppDelegate + MagicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942511E15A40A005E037F /* AppDelegate + MagicalRecord.swift */; };
 		2D64F3491E0C3ED500F6C968 /* DBArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */; };
 		2D64F34D1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D64F34C1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m */; };
 		2DFA629B1E10DE9D00304A70 /* CDUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62901E10DE9D00304A70 /* CDUser+CoreDataClass.swift */; };
@@ -182,6 +184,8 @@
 		2D5942481E1585C3005E037F /* MoveModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoveModel + UICollectionView.swift"; sourceTree = "<group>"; };
 		2D59424A1E1585D6005E037F /* RemoveModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RemoveModel + UICollectionView.swift"; sourceTree = "<group>"; };
 		2D59424C1E1585E2005E037F /* UpdateModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UpdateModel + UICollectionView.swift"; sourceTree = "<group>"; };
+		2D59424F1E15A399005E037F /* AppDelegate + SignIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate + SignIn.swift"; sourceTree = "<group>"; };
+		2D5942511E15A40A005E037F /* AppDelegate + MagicalRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate + MagicalRecord.swift"; sourceTree = "<group>"; };
 		2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBArrayModel.swift; sourceTree = "<group>"; };
 		2D64F34B1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+BPVExtensions.h"; sourceTree = "<group>"; };
 		2D64F34C1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+BPVExtensions.m"; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				2D0607511E0AA23300AA0C41 /* AppDelegate.swift */,
 				2D0606941E0A979B00AA0C41 /* Assets.xcassets */,
 				2D0607441E0AA0FC00AA0C41 /* RecipesList-Bridging-Header.h */,
+				2D06075C1E0AA3FD00AA0C41 /* Main.storyboard */,
 				2D0607531E0AA25B00AA0C41 /* Base.lproj */,
 			);
 			path = RecipesList;
@@ -285,7 +290,6 @@
 		2D0606BB1E0A97DE00AA0C41 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				2D0606BC1E0A97DE00AA0C41 /* BPVObservableObject */,
 				2D0606BD1E0A97DE00AA0C41 /* Extensions */,
 				2D0606C51E0A97DE00AA0C41 /* Models */,
 				2D0606C81E0A97DE00AA0C41 /* ViewControllers */,
@@ -294,17 +298,11 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
-		2D0606BC1E0A97DE00AA0C41 /* BPVObservableObject */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BPVObservableObject;
-			sourceTree = "<group>";
-		};
 		2D0606BD1E0A97DE00AA0C41 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				2D64F34A1E0C4BA500F6C968 /* NSManagedObject */,
+				2D59424E1E15A37A005E037F /* AppDelegate */,
 				2D0606BE1E0A97DE00AA0C41 /* Array.swift */,
 				2D0606C01E0A97DE00AA0C41 /* UICollectionView.swift */,
 				2D0606C11E0A97DE00AA0C41 /* UINib.swift */,
@@ -540,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				2D06075A1E0AA3FD00AA0C41 /* LaunchScreen.storyboard */,
-				2D06075C1E0AA3FD00AA0C41 /* Main.storyboard */,
 			);
 			name = Base.lproj;
 			path = "../../../untitled folder/RecipesList/RecipesList/Base.lproj";
@@ -633,6 +630,15 @@
 				2D5942301E154A80005E037F /* TwoIndexArrayChange.swift */,
 			);
 			path = TwoIndexArrayChange;
+			sourceTree = "<group>";
+		};
+		2D59424E1E15A37A005E037F /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2D59424F1E15A399005E037F /* AppDelegate + SignIn.swift */,
+				2D5942511E15A40A005E037F /* AppDelegate + MagicalRecord.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		2D64F34A1E0C4BA500F6C968 /* NSManagedObject */ = {
@@ -935,6 +941,7 @@
 				2D0607251E0A97DE00AA0C41 /* EditTableViewCell.swift in Sources */,
 				2D0607111E0A97DE00AA0C41 /* Model.swift in Sources */,
 				2D06073B1E0A97DE00AA0C41 /* SettingsViewController.swift in Sources */,
+				2D5942521E15A40A005E037F /* AppDelegate + MagicalRecord.swift in Sources */,
 				2D64F3491E0C3ED500F6C968 /* DBArrayModel.swift in Sources */,
 				2D0607361E0A97DE00AA0C41 /* RecipeDetailViewController.swift in Sources */,
 				2D59423F1E154BB0005E037F /* MoveModel + UITableView.swift in Sources */,
@@ -972,6 +979,7 @@
 				2DFA629F1E10DE9D00304A70 /* DBRecipes.swift in Sources */,
 				2DFA62D21E12A42400304A70 /* CDRecipe+CoreDataProperties.swift in Sources */,
 				2D0607281E0A97DE00AA0C41 /* RecipeEditHeaderCell.swift in Sources */,
+				2D5942501E15A399005E037F /* AppDelegate + SignIn.swift in Sources */,
 				2DFA62CF1E12A42400304A70 /* CDComponent+CoreDataClass.swift in Sources */,
 				2D0607161E0A97DE00AA0C41 /* TableViewController.swift in Sources */,
 				2D5942431E154E91005E037F /* ArrayChange + UITableView.swift in Sources */,
@@ -1028,6 +1036,7 @@
 				2D06075D1E0AA3FD00AA0C41 /* Base */,
 			);
 			name = Main.storyboard;
+			path = "../../../untitled folder/RecipesList/RecipesList/Base.lproj";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

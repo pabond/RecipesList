@@ -12,6 +12,9 @@ class RecipeDetailViewController: ViewController {
     var recipeDetailView: RecipeDetailView?
     var deleteFunction: ((_ recipe: CDRecipe?) -> ())?
     var recipe: CDRecipe?
+    
+    //MARK: -
+    //MARK: View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,9 @@ class RecipeDetailViewController: ViewController {
         recipeDetailView = viewGetter()
         recipeDetailView?.tableView.registerCells(withClasses: [RecipeDetailHeaderCell.self, RecipeComponentCell.self])
     }
+    
+    //MARK: -
+    //MARK: Interface Handling
     
     @IBAction func onSettings(_ sender: Any) {
         performSegue(toViewControllerWithClass: SettingsViewController.self, sender: nil)
@@ -41,6 +47,9 @@ class RecipeDetailViewController: ViewController {
         recipeDetailView?.tableView.reloadData()
     }
     
+    //MARK: -
+    //MARK: Public implementations
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier
         if identifier == String(describing: SettingsViewController.self) {
@@ -58,6 +67,9 @@ class RecipeDetailViewController: ViewController {
         }
     }
 }
+
+//MARK: -
+//MARK: UITableViewDataSource
 
 extension RecipeDetailViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

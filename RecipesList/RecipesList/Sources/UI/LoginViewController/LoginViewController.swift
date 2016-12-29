@@ -38,6 +38,9 @@ class LoginViewController: ViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signInSilently()
     }
     
+    //MARK: -
+    //MARK: Interface Handling
+    
     @IBAction func onLogOut(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
     }
@@ -45,6 +48,9 @@ class LoginViewController: ViewController, GIDSignInUIDelegate {
     @IBAction func onContinue(_ sender: Any) {
         showUserRecipes(GIDSignIn.sharedInstance().currentUser)
     }
+    
+    //MARK: -
+    //MARK: Public implementations
     
     func showUserRecipes(_ user: GIDGoogleUser!) {
         performSegue(toViewControllerWithClass: RecipesViewController.self, sender: user)
@@ -59,6 +65,9 @@ class LoginViewController: ViewController, GIDSignInUIDelegate {
         }
     }
 }
+
+//MARK: -
+//MARK: GIDSignInDelegate
 
 extension LoginViewController : GIDSignInDelegate {
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
