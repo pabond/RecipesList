@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import RxSwift
 
 let kBatchSize: Int = 10
 let kCacheName = "Master"
 
 class DBArrayModel: ArrayModel {
+    let observable = PublishSubject<ArrayChange>()
+    
     var predicate: NSPredicate? {
         get { return nil }
     }
@@ -129,15 +132,18 @@ extension DBArrayModel : NSFetchedResultsControllerDelegate {
                     for type: NSFetchedResultsChangeType,
                     newIndexPath: IndexPath?)
     {
+        var changeModel: ArrayChange
         switch type {
         case .insert:
-            print(".insert")
+            changeModel = AddModel(newIndexPath)
         case .delete:
-            print(".delete")
+            changeModel = RemoveModel(indexPath)
         case .update:
-            print(".update")
+            changeModel = UpdateModel(indexPath)
         case .move:
-            print(".move")
+            changeModel = MoveModel(newIndexPath, with: indexPath)
         }
+        
+        observable.onNext(changeModel)
     }
 }

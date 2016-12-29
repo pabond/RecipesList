@@ -11,7 +11,7 @@ import RxSwift
 
 fileprivate let headerCellHeight: CGFloat = 140
 class LoadingCalculatorViewController: TableViewController {
-    let desposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     @IBOutlet weak var tableView: UITableView!
     var calculatedRecipe = CalculatedRecipe()
     var recipe: CDRecipe? {
@@ -34,7 +34,7 @@ class LoadingCalculatorViewController: TableViewController {
         if calculatedRecipe.weight != weight {
             _ = calculatedRecipe.applyToWeight(weight).subscribe { [weak self] (event) in
                 self?.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
-            }.addDisposableTo(desposeBag)
+            }.addDisposableTo(disposeBag)
         }
     }
 }

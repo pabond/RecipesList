@@ -39,5 +39,11 @@ extension UITableView {
             self.registerCell(withClass: cls)
         }
     }
+    
+    func update(_ block: () -> ()) {
+        self.beginUpdates()
+        block()
+        self.endUpdates()
+    }
 }
 

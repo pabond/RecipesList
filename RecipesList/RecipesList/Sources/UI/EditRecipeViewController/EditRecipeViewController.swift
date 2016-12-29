@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RxSwift
 
 fileprivate let headerCellHeight: CGFloat = 225.0
 
 class EditRecipeViewController: UITableViewController {
+    let disposeBag = DisposeBag()
     var doneFunction: ((_ recipe: CDRecipe?) -> ())?
     var recipe: CDRecipe?
     var cells = [UITableViewCell]()
@@ -25,6 +27,9 @@ class EditRecipeViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = headerCellHeight
+        recipe?.componentsList?.observable.subscribe({ (change) in
+            _ = change.map({ $0.apply(to: self.tableView) })
+        }).addDisposableTo(disposeBag)
     }
     
     @IBAction func onDone(_ sender: Any) {
@@ -47,7 +52,7 @@ class EditRecipeViewController: UITableViewController {
     func onAddComponent() {
         let component = CDComponent.create(recipe)
         recipe?.componentsList?.addModel(component)
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     func onTextFieldStartEdit(_ cell: EditTableViewCell, didEdit textField: UITextField) {
@@ -120,7 +125,7 @@ extension EditRecipeViewController {
         if editingStyle == .delete {
             let component = recipe?.components?.allObjects[row - 1] as? CDComponent
             recipe?.removeFromComponents(component!)
-            tableView.deleteRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
+//            tableView.deleteRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
         }
     }
     

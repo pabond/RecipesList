@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import RxSwift
 
 class RecipesViewController: ViewController {
+    let disposeBag = DisposeBag()
     var recipesView: RecipesView?
     var recipes: [AnyObject]? {
         get {
@@ -38,6 +40,9 @@ class RecipesViewController: ViewController {
         
         recipesView = viewGetter()
         recipesView?.collectionView.registerCell(withClass: RecipeCollectionViewCell.self)
+        user?.recipesList?.observable.subscribe({ (change) in
+            _ = change.map({ $0.applyToCollectionView((self.recipesView?.collectionView)!) })
+        }).addDisposableTo(disposeBag)
     }
     
     //MARK: -
@@ -58,13 +63,13 @@ class RecipesViewController: ViewController {
     func addNewRecipe(_ recipe : CDRecipe?) {
         recipe?.user = user
         user?.recipesList?.addModel(recipe)
-        recipesView?.collectionView.reloadData()
+//        recipesView?.collectionView.reloadData()
     }
     
     func deleteRecipe(_ recipe: CDRecipe?) {
         if let recipe = recipe {
             user?.recipesList?.removeModel(recipe)
-            recipesView?.collectionView.reloadData()
+//            recipesView?.collectionView.reloadData()
         }
     }
     

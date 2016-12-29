@@ -57,6 +57,23 @@
 		2D0607521E0AA23300AA0C41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0607511E0AA23300AA0C41 /* AppDelegate.swift */; };
 		2D06075E1E0AA3FD00AA0C41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D06075A1E0AA3FD00AA0C41 /* LaunchScreen.storyboard */; };
 		2D06075F1E0AA3FD00AA0C41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D06075C1E0AA3FD00AA0C41 /* Main.storyboard */; };
+		2D59422D1E154A4F005E037F /* ArrayChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59422C1E154A4F005E037F /* ArrayChange.swift */; };
+		2D59422F1E154A71005E037F /* OneIndexArrayChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59422E1E154A71005E037F /* OneIndexArrayChange.swift */; };
+		2D5942311E154A80005E037F /* TwoIndexArrayChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942301E154A80005E037F /* TwoIndexArrayChange.swift */; };
+		2D5942331E154AB2005E037F /* AddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942321E154AB2005E037F /* AddModel.swift */; };
+		2D5942351E154AD6005E037F /* MoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942341E154AD6005E037F /* MoveModel.swift */; };
+		2D5942371E154AEC005E037F /* RemoveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942361E154AEC005E037F /* RemoveModel.swift */; };
+		2D5942391E154B04005E037F /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942381E154B04005E037F /* UpdateModel.swift */; };
+		2D59423B1E154B88005E037F /* UpdateModel + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59423A1E154B88005E037F /* UpdateModel + UITableView.swift */; };
+		2D59423D1E154B9C005E037F /* RemoveModel + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59423C1E154B9C005E037F /* RemoveModel + UITableView.swift */; };
+		2D59423F1E154BB0005E037F /* MoveModel + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59423E1E154BB0005E037F /* MoveModel + UITableView.swift */; };
+		2D5942411E154BBD005E037F /* AddModel + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942401E154BBD005E037F /* AddModel + UITableView.swift */; };
+		2D5942431E154E91005E037F /* ArrayChange + UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942421E154E91005E037F /* ArrayChange + UITableView.swift */; };
+		2D5942451E15834E005E037F /* ArrayChange + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942441E15834E005E037F /* ArrayChange + UICollectionView.swift */; };
+		2D5942471E1585AA005E037F /* AddModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942461E1585AA005E037F /* AddModel + UICollectionView.swift */; };
+		2D5942491E1585C3005E037F /* MoveModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5942481E1585C3005E037F /* MoveModel + UICollectionView.swift */; };
+		2D59424B1E1585D6005E037F /* RemoveModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59424A1E1585D6005E037F /* RemoveModel + UICollectionView.swift */; };
+		2D59424D1E1585E2005E037F /* UpdateModel + UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D59424C1E1585E2005E037F /* UpdateModel + UICollectionView.swift */; };
 		2D64F3491E0C3ED500F6C968 /* DBArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */; };
 		2D64F34D1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D64F34C1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m */; };
 		2DFA629B1E10DE9D00304A70 /* CDUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA62901E10DE9D00304A70 /* CDUser+CoreDataClass.swift */; };
@@ -148,6 +165,23 @@
 		2D0607511E0AA23300AA0C41 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D06075B1E0AA3FD00AA0C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RecipesList/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		2D06075D1E0AA3FD00AA0C41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RecipesList/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		2D59422C1E154A4F005E037F /* ArrayChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayChange.swift; sourceTree = "<group>"; };
+		2D59422E1E154A71005E037F /* OneIndexArrayChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneIndexArrayChange.swift; sourceTree = "<group>"; };
+		2D5942301E154A80005E037F /* TwoIndexArrayChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoIndexArrayChange.swift; sourceTree = "<group>"; };
+		2D5942321E154AB2005E037F /* AddModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddModel.swift; sourceTree = "<group>"; };
+		2D5942341E154AD6005E037F /* MoveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveModel.swift; sourceTree = "<group>"; };
+		2D5942361E154AEC005E037F /* RemoveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveModel.swift; sourceTree = "<group>"; };
+		2D5942381E154B04005E037F /* UpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
+		2D59423A1E154B88005E037F /* UpdateModel + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UpdateModel + UITableView.swift"; sourceTree = "<group>"; };
+		2D59423C1E154B9C005E037F /* RemoveModel + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RemoveModel + UITableView.swift"; sourceTree = "<group>"; };
+		2D59423E1E154BB0005E037F /* MoveModel + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoveModel + UITableView.swift"; sourceTree = "<group>"; };
+		2D5942401E154BBD005E037F /* AddModel + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddModel + UITableView.swift"; sourceTree = "<group>"; };
+		2D5942421E154E91005E037F /* ArrayChange + UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ArrayChange + UITableView.swift"; sourceTree = "<group>"; };
+		2D5942441E15834E005E037F /* ArrayChange + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ArrayChange + UICollectionView.swift"; sourceTree = "<group>"; };
+		2D5942461E1585AA005E037F /* AddModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AddModel + UICollectionView.swift"; sourceTree = "<group>"; };
+		2D5942481E1585C3005E037F /* MoveModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoveModel + UICollectionView.swift"; sourceTree = "<group>"; };
+		2D59424A1E1585D6005E037F /* RemoveModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RemoveModel + UICollectionView.swift"; sourceTree = "<group>"; };
+		2D59424C1E1585E2005E037F /* UpdateModel + UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UpdateModel + UICollectionView.swift"; sourceTree = "<group>"; };
 		2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBArrayModel.swift; sourceTree = "<group>"; };
 		2D64F34B1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+BPVExtensions.h"; sourceTree = "<group>"; };
 		2D64F34C1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+BPVExtensions.m"; sourceTree = "<group>"; };
@@ -287,6 +321,7 @@
 				2D0606C71E0A97DE00AA0C41 /* Model.swift */,
 				2D0606C61E0A97DE00AA0C41 /* ArrayModel.swift */,
 				2D64F3481E0C3ED500F6C968 /* DBArrayModel.swift */,
+				2D5942231E154A1E005E037F /* ArrayChange */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -509,6 +544,95 @@
 			);
 			name = Base.lproj;
 			path = "../../../untitled folder/RecipesList/RecipesList/Base.lproj";
+			sourceTree = "<group>";
+		};
+		2D5942231E154A1E005E037F /* ArrayChange */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942241E154A1E005E037F /* ArrayChange */,
+				2D5942251E154A1E005E037F /* ChangeModels */,
+				2D59422A1E154A1E005E037F /* OneIndexArrayChange */,
+				2D59422B1E154A1E005E037F /* TwoIndexArrayChange */,
+			);
+			name = ArrayChange;
+			path = RecipesList/Library/ArrayChange;
+			sourceTree = SOURCE_ROOT;
+		};
+		2D5942241E154A1E005E037F /* ArrayChange */ = {
+			isa = PBXGroup;
+			children = (
+				2D59422C1E154A4F005E037F /* ArrayChange.swift */,
+				2D5942421E154E91005E037F /* ArrayChange + UITableView.swift */,
+				2D5942441E15834E005E037F /* ArrayChange + UICollectionView.swift */,
+			);
+			path = ArrayChange;
+			sourceTree = "<group>";
+		};
+		2D5942251E154A1E005E037F /* ChangeModels */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942261E154A1E005E037F /* AddModel */,
+				2D5942271E154A1E005E037F /* MoveModel */,
+				2D5942281E154A1E005E037F /* RemoveModel */,
+				2D5942291E154A1E005E037F /* UpdateModel */,
+			);
+			path = ChangeModels;
+			sourceTree = "<group>";
+		};
+		2D5942261E154A1E005E037F /* AddModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942321E154AB2005E037F /* AddModel.swift */,
+				2D5942401E154BBD005E037F /* AddModel + UITableView.swift */,
+				2D5942461E1585AA005E037F /* AddModel + UICollectionView.swift */,
+			);
+			path = AddModel;
+			sourceTree = "<group>";
+		};
+		2D5942271E154A1E005E037F /* MoveModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942341E154AD6005E037F /* MoveModel.swift */,
+				2D59423E1E154BB0005E037F /* MoveModel + UITableView.swift */,
+				2D5942481E1585C3005E037F /* MoveModel + UICollectionView.swift */,
+			);
+			path = MoveModel;
+			sourceTree = "<group>";
+		};
+		2D5942281E154A1E005E037F /* RemoveModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942361E154AEC005E037F /* RemoveModel.swift */,
+				2D59423C1E154B9C005E037F /* RemoveModel + UITableView.swift */,
+				2D59424A1E1585D6005E037F /* RemoveModel + UICollectionView.swift */,
+			);
+			path = RemoveModel;
+			sourceTree = "<group>";
+		};
+		2D5942291E154A1E005E037F /* UpdateModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942381E154B04005E037F /* UpdateModel.swift */,
+				2D59423A1E154B88005E037F /* UpdateModel + UITableView.swift */,
+				2D59424C1E1585E2005E037F /* UpdateModel + UICollectionView.swift */,
+			);
+			path = UpdateModel;
+			sourceTree = "<group>";
+		};
+		2D59422A1E154A1E005E037F /* OneIndexArrayChange */ = {
+			isa = PBXGroup;
+			children = (
+				2D59422E1E154A71005E037F /* OneIndexArrayChange.swift */,
+			);
+			path = OneIndexArrayChange;
+			sourceTree = "<group>";
+		};
+		2D59422B1E154A1E005E037F /* TwoIndexArrayChange */ = {
+			isa = PBXGroup;
+			children = (
+				2D5942301E154A80005E037F /* TwoIndexArrayChange.swift */,
+			);
+			path = TwoIndexArrayChange;
 			sourceTree = "<group>";
 		};
 		2D64F34A1E0C4BA500F6C968 /* NSManagedObject */ = {
@@ -789,6 +913,7 @@
 			files = (
 				2D06070E1E0A97DE00AA0C41 /* UIViewController.swift in Sources */,
 				2D06070A1E0A97DE00AA0C41 /* Array.swift in Sources */,
+				2D5942391E154B04005E037F /* UpdateModel.swift in Sources */,
 				2D0607191E0A97DE00AA0C41 /* RoundedView.swift in Sources */,
 				2D0607521E0AA23300AA0C41 /* AppDelegate.swift in Sources */,
 				2D0607261E0A97DE00AA0C41 /* RecipeComponentEditCell.swift in Sources */,
@@ -798,16 +923,23 @@
 				2D0607351E0A97DE00AA0C41 /* RecipeDetailView.swift in Sources */,
 				2D0607101E0A97DE00AA0C41 /* ArrayModel.swift in Sources */,
 				2D06072B1E0A97DE00AA0C41 /* CalculateValueCell.swift in Sources */,
+				2D5942331E154AB2005E037F /* AddModel.swift in Sources */,
+				2D59422F1E154A71005E037F /* OneIndexArrayChange.swift in Sources */,
+				2D59424B1E1585D6005E037F /* RemoveModel + UICollectionView.swift in Sources */,
 				2D06070B1E0A97DE00AA0C41 /* UICollectionView.swift in Sources */,
 				2DFA62BF1E128E4900304A70 /* Components.swift in Sources */,
 				2DFA629E1E10DE9D00304A70 /* DBComponents.swift in Sources */,
+				2D5942411E154BBD005E037F /* AddModel + UITableView.swift in Sources */,
+				2D59423D1E154B9C005E037F /* RemoveModel + UITableView.swift in Sources */,
 				2D0607121E0A97DE00AA0C41 /* SlideInPresentationAnimator.swift in Sources */,
 				2D0607251E0A97DE00AA0C41 /* EditTableViewCell.swift in Sources */,
 				2D0607111E0A97DE00AA0C41 /* Model.swift in Sources */,
 				2D06073B1E0A97DE00AA0C41 /* SettingsViewController.swift in Sources */,
 				2D64F3491E0C3ED500F6C968 /* DBArrayModel.swift in Sources */,
 				2D0607361E0A97DE00AA0C41 /* RecipeDetailViewController.swift in Sources */,
+				2D59423F1E154BB0005E037F /* MoveModel + UITableView.swift in Sources */,
 				2D0607141E0A97DE00AA0C41 /* SlideInPresentationManager.swift in Sources */,
+				2D59422D1E154A4F005E037F /* ArrayChange.swift in Sources */,
 				2D06071B1E0A97DE00AA0C41 /* CalculatedRecipe.swift in Sources */,
 				2D0607321E0A97DE00AA0C41 /* RecipeDetailCell.swift in Sources */,
 				2D06072A1E0A97DE00AA0C41 /* EditRecipeViewController.swift in Sources */,
@@ -817,23 +949,32 @@
 				2D0607371E0A97DE00AA0C41 /* RecipeCollectionViewCell.swift in Sources */,
 				2DFA62D11E12A42400304A70 /* CDRecipe+CoreDataClass.swift in Sources */,
 				2DFA62D01E12A42400304A70 /* CDComponent+CoreDataProperties.swift in Sources */,
+				2D59424D1E1585E2005E037F /* UpdateModel + UICollectionView.swift in Sources */,
 				2D06073A1E0A97DE00AA0C41 /* RecipesViewController.swift in Sources */,
+				2D5942351E154AD6005E037F /* MoveModel.swift in Sources */,
+				2D5942491E1585C3005E037F /* MoveModel + UICollectionView.swift in Sources */,
 				2D06072F1E0A97DE00AA0C41 /* LoginViewController.swift in Sources */,
 				2D0607151E0A97DE00AA0C41 /* SlideOutAnimationController.swift in Sources */,
 				2D06072D1E0A97DE00AA0C41 /* LoadingCalculatorViewController.swift in Sources */,
 				2DFA629B1E10DE9D00304A70 /* CDUser+CoreDataClass.swift in Sources */,
 				2D06070C1E0A97DE00AA0C41 /* UINib.swift in Sources */,
 				2D06070D1E0A97DE00AA0C41 /* UITableView.swift in Sources */,
+				2D59423B1E154B88005E037F /* UpdateModel + UITableView.swift in Sources */,
+				2D5942311E154A80005E037F /* TwoIndexArrayChange.swift in Sources */,
 				2DFA629D1E10DE9D00304A70 /* DataBase.xcdatamodeld in Sources */,
+				2D5942371E154AEC005E037F /* RemoveModel.swift in Sources */,
 				2D0607131E0A97DE00AA0C41 /* SlideInPresentationController.swift in Sources */,
 				2D06072E1E0A97DE00AA0C41 /* LoginView.swift in Sources */,
+				2D5942471E1585AA005E037F /* AddModel + UICollectionView.swift in Sources */,
 				2D0607221E0A97DE00AA0C41 /* Recipe.swift in Sources */,
+				2D5942451E15834E005E037F /* ArrayChange + UICollectionView.swift in Sources */,
 				2D0607331E0A97DE00AA0C41 /* RecipeDetailHeaderCell.swift in Sources */,
 				2DFA629F1E10DE9D00304A70 /* DBRecipes.swift in Sources */,
 				2DFA62D21E12A42400304A70 /* CDRecipe+CoreDataProperties.swift in Sources */,
 				2D0607281E0A97DE00AA0C41 /* RecipeEditHeaderCell.swift in Sources */,
 				2DFA62CF1E12A42400304A70 /* CDComponent+CoreDataClass.swift in Sources */,
 				2D0607161E0A97DE00AA0C41 /* TableViewController.swift in Sources */,
+				2D5942431E154E91005E037F /* ArrayChange + UITableView.swift in Sources */,
 				2D06070F1E0A97DE00AA0C41 /* UIWindow.swift in Sources */,
 				2D0607391E0A97DE00AA0C41 /* RecipesView.swift in Sources */,
 				2D64F34D1E0C4BA500F6C968 /* NSManagedObject+BPVExtensions.m in Sources */,
