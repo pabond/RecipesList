@@ -54,9 +54,10 @@ class LoginView: UIView {
     
     func loadAvatarImage() {
         DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
-            let data:NSData? = NSData(contentsOf : (self?.user?.profile.imageURL(withDimension: 300))!)
+            let data: NSData? = NSData(contentsOf : (self?.user?.profile.imageURL(withDimension: 300))!)
+            let image = UIImage(data : data as! Data)
             DispatchQueue.main.async { () -> Void in
-                self?.avatarImageView.image = UIImage(data : data as! Data)
+                self?.avatarImageView.image = image
                 self?.avatarImageView.isHidden = false
                 UIView.animate(withDuration: animationDuration, animations: {
                     self?.avatarImageView.alpha = upperAlpha

@@ -27,21 +27,15 @@ class RecipesViewController: ViewController {
     //MARK: -
     //MARK: View lifecycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if isViewLoaded {
-            recipesView?.collectionView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recipesView = viewGetter()
         recipesView?.collectionView.registerCell(withClass: RecipeCollectionViewCell.self)
         user?.recipesList?.observable.subscribe({ (change) in
-            _ = change.map({ $0.applyToCollectionView((self.recipesView?.collectionView)!) })
+            DispatchQueue.main.async { () -> Void in
+                _ = change.map({ $0.applyToCollectionView((self.recipesView?.collectionView)!) })
+            }
         }).addDisposableTo(disposeBag)
     }
     

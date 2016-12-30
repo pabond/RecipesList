@@ -31,7 +31,9 @@ class EditRecipeViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = headerCellHeight
         recipe?.componentsList?.observable.subscribe({ (change) in
-            _ = change.map({ $0.apply(to: self.tableView) })
+            DispatchQueue.main.async { () -> Void in
+                _ = change.map({ $0.apply(to: self.tableView) })
+            }
         }).addDisposableTo(disposeBag)
     }
     
