@@ -49,7 +49,7 @@ class RecipesViewController: ViewController {
     //MARK: Interface Handling
     
     @IBAction func onAdd(_ sender: Any) {
-        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.mr_createEntity())
+        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.create(user))
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -59,11 +59,6 @@ class RecipesViewController: ViewController {
     
     //MARK: -
     //MARK: Public implementations
-    
-    func addNewRecipe(_ recipe : CDRecipe?) {
-        recipe?.user = user
-        user?.recipesList?.addModel(recipe)
-    }
     
     func deleteRecipe(_ recipe: CDRecipe?) {
         if let recipe = recipe {
@@ -76,7 +71,6 @@ class RecipesViewController: ViewController {
         let recipe = sender as? CDRecipe
         if identifier == String(describing: EditRecipeViewController.self) {
             guard let editVC = segue.destination as? EditRecipeViewController else { return }
-            editVC.doneFunction = addNewRecipe
             editVC.recipe = recipe
         } else if identifier == String(describing: RecipeDetailViewController.self) {
             guard let detailVC = segue.destination as? RecipeDetailViewController else { return }

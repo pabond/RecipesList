@@ -30,6 +30,7 @@
                         <constraints>
                             <constraint firstItem="da9-ih-V5g" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="184" id="K4V-Ln-CvP"/>
                             <constraint firstItem="da9-ih-V5g" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="51" id="L9i-gt-rPG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="da9-ih-V5g" secondAttribute="trailing" constant="52" id="RbY-Y2-ESc"/>
                             <constraint firstItem="da9-ih-V5g" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Zyb-Gb-hKr"/>
                             <constraint firstItem="da9-ih-V5g" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="j30-iU-Caa"/>
                         </constraints>

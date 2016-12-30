@@ -25,11 +25,11 @@ public class CDComponent: NSManagedObject {
         for component in recipeComponents {
             if let currentId = (component as? CDComponent)?.id {
                 if currentId > identifier {
-                    identifier = currentId
+                    identifier = currentId + 1
                 }
             }
         }
         
-        self.id = identifier + 1
+        self.id = identifier
     }
 }
