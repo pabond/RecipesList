@@ -11,6 +11,7 @@ import UIKit
 class RecipeDetailViewController: ViewController {
     var recipeDetailView: RecipeDetailView?
     var deleteFunction: ((_ recipe: CDRecipe?) -> ())?
+    var didUpdate: (() -> ())?
     var recipe: CDRecipe?
     
     //MARK: -
@@ -45,6 +46,9 @@ class RecipeDetailViewController: ViewController {
     
     func doneEdit(_ recipe: CDRecipe?) {
         recipeDetailView?.tableView.reloadData()
+        if let update = didUpdate {
+            update()
+        }
     }
     
     //MARK: -

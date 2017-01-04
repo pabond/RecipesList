@@ -58,8 +58,7 @@ class EditRecipeViewController: UITableViewController {
     }
     
     func onAddComponent() {
-        let component = CDComponent.create(recipe)
-        recipe?.componentsList?.addModel(component)
+        _ = CDComponent.create(recipe)
     }
     
     func onTextFieldStartEdit(_ cell: EditTableViewCell, didEdit textField: UITextField) {
@@ -86,7 +85,7 @@ class EditRecipeViewController: UITableViewController {
                 break
             }
         } else {
-            guard let component: CDComponent? = recipe?.components?.allObjects[(row - 1)] as? CDComponent?
+            guard let component: CDComponent? = recipe?.componentsList?.model(at: (row - 1)) as? CDComponent?
                 else { return }
             switch tag {
             case 0: component?.componentName = text
@@ -105,7 +104,7 @@ class EditRecipeViewController: UITableViewController {
 
 extension EditRecipeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (recipe?.components?.allObjects.count)! + 1
+        return (recipe?.componentsList?.count ?? 0) + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,7 +116,7 @@ extension EditRecipeViewController {
             cell.addFunction = onAddComponent
         } else {
             cell = tableView.dequeueCellWithClass(RecipeComponentEditCell.self, indexPath: indexPath)
-            object = recipe?.components?.allObjects[row - 1] as AnyObject?
+            object = recipe?.componentsList?.model(at: (row - 1)) as AnyObject?
         }
         
         if object != nil {
@@ -134,10 +133,9 @@ extension EditRecipeViewController {
                             commit editingStyle: UITableViewCellEditingStyle,
                             forRowAt indexPath: IndexPath)
     {
-        let row = indexPath.row
+        let index = indexPath.row - 1
         if editingStyle == .delete {
-            let component = recipe?.components?.allObjects[row - 1] as? CDComponent
-            recipe?.removeFromComponents(component!)
+            recipe?.componentsList?.removeModelAtIndex(index)
         }
     }
     

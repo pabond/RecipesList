@@ -86,19 +86,28 @@ class DBArrayModel: ArrayModel {
     }
     
     override func addModel(_ model: AnyObject?) {
-        if model != nil {
-            object?.addCustomValue(model, forKey: keyPath)
-        }
+        Lock.sync(self, withBlock: {
+            if model != nil {
+                object?.addCustomValue(model, forKey: keyPath)
+            }
+        })
     }
     
     override func removeModel(_ model: AnyObject?) {
-        if model != nil {
-            object?.removeCustomValue(model, forKey: keyPath)
-        }
+        Lock.sync(self, withBlock: {
+            if model != nil {
+                object?.removeCustomValue(model, forKey: keyPath)
+            }
+        })
     }
         
     override func model(at index: Int?) -> AnyObject? {
-        return index != nil ? self.models[index!] : nil
+        var object: AnyObject?
+        Lock.sync(self, withBlock: {
+            object = index != nil ? self.models[index!] : nil
+        })
+        
+        return object
     }
     
     override func indexOfModel(_ model: AnyObject?) -> Int? {
@@ -106,11 +115,18 @@ class DBArrayModel: ArrayModel {
             return nil
         }
         
-        return (models.index(where: { $0 === model }))
+        var index: Int?
+        Lock.sync(self) { 
+            index = (models.index(where: { $0.objectID === model?.objectID }))
+        }
+        
+        return index
     }
 
     override func removeModelAtIndex(_ index: Int?) {
-        removeModel(model(at: index))
+        Lock.sync(self, withBlock: {
+            removeModel(model(at: index))
+        })
     }
 
     override func moveModel(from index: Int, to destIndex: Int) {
@@ -134,14 +150,10 @@ extension DBArrayModel : NSFetchedResultsControllerDelegate {
     {
         var changeModel: ArrayChange
         switch type {
-        case .insert:
-            changeModel = AddModel(newIndexPath)
-        case .delete:
-            changeModel = RemoveModel(indexPath)
-        case .update:
-            changeModel = UpdateModel(indexPath)
-        case .move:
-            changeModel = MoveModel(newIndexPath, with: indexPath)
+        case .insert:   changeModel = AddModel(newIndexPath)
+        case .delete:   changeModel = RemoveModel(indexPath)
+        case .update:   changeModel = UpdateModel(indexPath)
+        case .move:     changeModel = MoveModel(newIndexPath, with: indexPath)
         }
         
         observable.onNext(changeModel)

@@ -24,6 +24,8 @@ class RecipesViewController: ViewController {
     fileprivate var itemsPerRow: CGFloat = 2
     fileprivate var rowHeight: CGFloat = 130
     
+    var refreshControl: UIRefreshControl?
+    
     //MARK: -
     //MARK: View lifecycle
     
@@ -32,6 +34,7 @@ class RecipesViewController: ViewController {
         
         recipesView = viewGetter()
         recipesView?.collectionView.registerCell(withClass: RecipeCollectionViewCell.self)
+        refreshSetUp()
         user?.recipesList?.observable.subscribe({ (change) in
             DispatchQueue.main.async { () -> Void in
                 _ = change.map({ $0.applyToCollectionView((self.recipesView?.collectionView)!) })
@@ -43,7 +46,7 @@ class RecipesViewController: ViewController {
     //MARK: Interface Handling
     
     @IBAction func onAdd(_ sender: Any) {
-        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.create(user))
+        performSegue(toViewControllerWithClass: EditRecipeViewController.self, sender: CDRecipe.mr_createEntity())
     }
     
     @IBAction func onLogout(_ sender: Any) {
@@ -54,10 +57,26 @@ class RecipesViewController: ViewController {
     //MARK: -
     //MARK: Public implementations
     
+    func refreshSetUp() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
+        recipesView?.collectionView.addSubview(refreshControl!)
+    }
+    
+    func addRecipeToUser(_ recipe: CDRecipe?) {
+        recipe?.user = user
+    }
+    
     func deleteRecipe(_ recipe: CDRecipe?) {
         if let recipe = recipe {
             user?.recipesList?.removeModel(recipe)
         }
+    }
+    
+    func update() {
+        refreshControl?.beginRefreshing()
+        recipesView?.collectionView.reloadData()
+        refreshControl?.endRefreshing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,10 +85,12 @@ class RecipesViewController: ViewController {
         if identifier == String(describing: EditRecipeViewController.self) {
             guard let editVC = segue.destination as? EditRecipeViewController else { return }
             editVC.recipe = recipe
+            editVC.doneFunction = addRecipeToUser
         } else if identifier == String(describing: RecipeDetailViewController.self) {
             guard let detailVC = segue.destination as? RecipeDetailViewController else { return }
             detailVC.recipe = recipe
             detailVC.deleteFunction = deleteRecipe
+            detailVC.didUpdate = update
         }
     }
 }
