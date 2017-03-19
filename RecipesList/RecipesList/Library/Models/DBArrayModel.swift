@@ -19,7 +19,7 @@ class DBArrayModel: ArrayModel {
         get { return nil }
     }
     
-    var sortDesriptor: NSSortDescriptor {
+    var sortDescriptor: NSSortDescriptor {
         get { return NSSortDescriptor(key: "", ascending: false) }
     }
     
@@ -41,9 +41,7 @@ class DBArrayModel: ArrayModel {
     
     var object: NSManagedObject?
     
-    var entityName: String {
-        get { return "" }
-    }
+    var entityName: String { get { return "" } }
 
     init(with object: NSManagedObject?, keyPath path: String) {
         super.init()
@@ -57,7 +55,7 @@ class DBArrayModel: ArrayModel {
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
         fetchRequest.fetchBatchSize = batchSize
         fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = [sortDesriptor]
+        fetchRequest.sortDescriptors = [sortDescriptor]
         let context = NSManagedObjectContext.mr_default()
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                     managedObjectContext: context,

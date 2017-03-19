@@ -26,7 +26,7 @@ class DBComponents: DBArrayModel {
         }
     }
     
-    override var sortDesriptor: NSSortDescriptor {
+    override var sortDescriptor: NSSortDescriptor {
         get { return NSSortDescriptor(key: "id", ascending: true) }
     }
 }

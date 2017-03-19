@@ -71,6 +71,6 @@ class LoginViewController: ViewController, GIDSignInUIDelegate {
 
 extension LoginViewController : GIDSignInDelegate {
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-            loginView?.isSignedIn = error == nil
+        loginView?.isSignedIn = error == nil
     }
 }
